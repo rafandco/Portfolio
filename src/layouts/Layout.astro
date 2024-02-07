@@ -1,0 +1,65 @@
+---
+import Navbar from "../components/navbar.astro";
+import Footer from "../components/footer.astro";
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <header class="header">
+      <Navbar />
+    </header>
+    <main class="main">
+      <slot />
+    </main>
+    <footer class="footer">
+		<Footer/>
+	</footer>
+  </body>
+</html>
+<style is:global>
+  body {
+	min-height: 100vh;
+    display: grid;
+    grid:
+      "header" auto
+      "main" 1fr
+      "footer" auto
+      / 1fr;
+    gap: 8px;
+	margin: 0;
+	background-color: #202020;
+	font-family: 'Inter', sans-serif;
+	color: #ffffff
+  }
+  .header {
+    grid-area: header;
+  }
+  .main {
+    grid-area: main;
+  }
+  .footer {
+    grid-area: footer;
+	background-color: #171717;
+  }
+</style>

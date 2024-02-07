@@ -1,6 +1,6 @@
 ---
-import Navbar from "../components/navbar.astro";
-import Footer from "../components/footer.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
 
 interface Props {
   title: string;
@@ -26,17 +26,18 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
-    <header class="header">
+    <header>
       <Navbar />
     </header>
-    <main class="main">
+    <main>
       <slot />
     </main>
-    <footer class="footer">
+    <footer>
       <Footer />
     </footer>
   </body>
 </html>
+
 <style is:global>
   body {
     min-height: 100vh;
@@ -52,13 +53,13 @@ const { title } = Astro.props;
     font-family: "Inter", sans-serif;
     color: #ffffff;
   }
-  .header {
+  header {
     grid-area: header;
   }
-  .main {
+  main {
     grid-area: main;
   }
-  .footer {
+  footer {
     grid-area: footer;
     background-color: #171717;
   }

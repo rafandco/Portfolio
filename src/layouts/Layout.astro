@@ -33,13 +33,13 @@ const { title } = Astro.props;
       <slot />
     </main>
     <footer class="footer">
-		<Footer/>
-	</footer>
+      <Footer />
+    </footer>
   </body>
 </html>
 <style is:global>
   body {
-	min-height: 100vh;
+    min-height: 100vh;
     display: grid;
     grid:
       "header" auto
@@ -47,10 +47,10 @@ const { title } = Astro.props;
       "footer" auto
       / 1fr;
     gap: 8px;
-	margin: 0;
-	background-color: #202020;
-	font-family: 'Inter', sans-serif;
-	color: #ffffff
+    margin: 0;
+    background-color: #202020;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
   }
   .header {
     grid-area: header;
@@ -60,6 +60,6 @@ const { title } = Astro.props;
   }
   .footer {
     grid-area: footer;
-	background-color: #171717;
+    background-color: #171717;
   }
 </style>

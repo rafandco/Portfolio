@@ -1,6 +1,6 @@
 ---
-import Navbar from "../components/Navbar.astro";
-import Footer from "../components/Footer.astro";
+import Header from "../components/organisms/Header.astro"
+import Footer from "../components/organisms/Footer.astro";
 
 interface Props {
   title: string;
@@ -16,25 +16,16 @@ const { title } = Astro.props;
     <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.cdnfonts.com/css/satoshi" rel="stylesheet">
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
   <body>
-    <header>
-      <Navbar />
-    </header>
+    <Header />
     <main>
       <slot />
     </main>
-    <footer>
-      <Footer />
-    </footer>
+    <Footer />
   </body>
 </html>
 
@@ -50,17 +41,23 @@ const { title } = Astro.props;
     gap: 8px;
     margin: 0;
     background-color: #202020;
-    font-family: "Inter", sans-serif;
+    font-family: "Satoshi", sans-serif;                                          
     color: #ffffff;
-  }
-  header {
-    grid-area: header;
   }
   main {
     grid-area: main;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
   }
-  footer {
-    grid-area: footer;
-    background-color: #171717;
+  h1{
+    font-size: 40px;
+    line-height: 1.5em;
+    letter-spacing: 0.05em;
+    margin: 0px;
   }
+  p {
+    font-size: 16px;
+    margin: 0px;
 </style>

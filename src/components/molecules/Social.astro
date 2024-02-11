@@ -1,0 +1,37 @@
+---
+import SocialLink from "../atoms/SocialLink.astro";
+---
+
+<nav>
+  <ul>
+    <li>
+      <SocialLink href="" app="instagram" />
+    </li>
+    <li>
+      <SocialLink href="" app="github" />
+    </li>
+    <li>
+      <SocialLink href="" app="linkedin" />
+    </li>
+  </ul>
+</nav>
+
+<style>
+  nav {
+    width: fit-content;
+    margin: 8px 0;
+  }
+  ul {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+  }
+  li {
+    list-style-type: none;
+    margin: 8px;
+    padding: 0;
+  }
+</style>

@@ -1,0 +1,36 @@
+---
+import Instagram24px from "../../assets/images/instagram24px.svg?raw";
+import Github24px from "../../assets/images/github24px.svg?raw";
+import Linkedin24px from "../../assets/images/linkedin24px.svg?raw";
+import Noicon24px from "../../assets/images/noicon24px.svg?raw";
+
+interface Props {
+  href: string;
+  app: string;
+}
+
+const { href, app } = Astro.props;
+---
+
+<a href={href}>
+  <Fragment
+    set:html={app == "instagram"
+      ? Instagram24px
+      : app == "github"
+        ? Github24px
+        : app == "linkedin"
+          ? Linkedin24px
+          : Noicon24px}
+  />
+</a>
+
+<style>
+  a {
+    display: block;
+    width: 24px;
+    height: 24px;
+    margin: 0;
+    padding: 8px;
+    color: white;
+  }
+</style>

@@ -1,10 +1,41 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
+import Section from "../components/organisms/Section.astro";
+import Hero from "../components/organisms/Hero.astro";
+import Social from "../components/molecules/Social.astro";
+import ButtonCTA from "../components/atoms/ButtonCTA.astro";
 ---
 
 <Layout title="rafanco">
-	
+  <Hero>
+    <img
+      class="logo-memoji"
+      src="src/assets/images/memoji.PNG"
+      alt="memoji de rafael"
+    />
+    <h1>Rafael Díaz</h1>
+    <p>
+      Sí. Soy la persona que necesitas para el proyecto que tienes en mente.
+    </p>
+    <Social />
+    <div class = "cta-container">
+      <ButtonCTA href="">Contactar</ButtonCTA>
+      <ButtonCTA href="">Sobre mí</ButtonCTA>
+    </div>
+  </Hero>
+  <Section />
+  <Section />
+  <Section />
 </Layout>
 
-<style>	
+<style>
+  .logo-memoji {
+    width: 150px;
+    height: auto;
+  }
+  .cta-container {
+    display: flex;
+    flex-direction: row;
+    gap: 8px; 
+  }
 </style>

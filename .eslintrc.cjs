@@ -2,18 +2,20 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
+    node: true,
   },
   extends: [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:astro/recommended", // Nueva extensión para Astro
+    "plugin:astro/recommended",
+    "prettier"
   ],
   overrides: [
     {
       env: {
         node: true,
       },
-      files: [".eslintrc.js", ".eslintrc.cjs"],
+      files: [".eslintrc.{js,cjs}"],
       parserOptions: {
         sourceType: "script",
       },
@@ -26,8 +28,10 @@ module.exports = {
         extraFileExtensions: [".astro"],
       },
       rules: {
-        // Aquí puedes agregar o anular reglas específicas para archivos .astro
-        // Por ejemplo: "astro/no-set-html-directive": "error"
+        indent: ["error", 2],
+        "linebreak-style": ["error", "unix"],
+        quotes: ["error", "double"],
+        semi: ["error", "never"],
       },
     },
   ],
@@ -39,8 +43,8 @@ module.exports = {
   plugins: ["@typescript-eslint"],
   rules: {
     indent: ["error", 2],
-    "linebreak-style": ["error", "windows"],
+    "linebreak-style": ["error", "unix"],
     quotes: ["error", "double"],
-    semi: ["error", "always"],
+    semi: ["error", "never"],
   },
-};
+}

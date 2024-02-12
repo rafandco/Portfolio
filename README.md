@@ -1,4 +1,3 @@
-
 # Rafandco Portfolio
 
 Portfolio personal, desarrollado con astro.
@@ -8,8 +7,6 @@ Portfolio personal, desarrollado con astro.
 - Proyectos
 - Sobre mí
 
-
 ## Autor
 
 - [rafandco](https://www.github.com/rafandco)
-

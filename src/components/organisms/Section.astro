@@ -1,12 +1,26 @@
-<section>
+---
+interface Props {
+  title: string
+  id: string
+}
+
+const { title, id } = Astro.props
+---
+
+<section id={id}>
+  <h2>{title}</h2>
   <slot />
 </section>
 
 <style>
   section {
+    box-sizing: border-box;
     width: 960px;
-    height: 300px;
-    padding: 8px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 8px 16px;
     border: 2px red solid;
+    gap: 16px;
   }
 </style>

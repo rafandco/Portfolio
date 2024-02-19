@@ -1,0 +1,34 @@
+---
+interface Props {
+  employer: string
+  date: string
+  role: string
+}
+const { employer, date, role } = Astro.props
+---
+
+<article>
+  <header>
+    <h3>{employer}</h3>
+    <p>{date}</p>
+  </header>
+
+  <p>{role}</p>
+  <p>
+    <slot />
+  </p>
+</article>
+
+<style>
+  article {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+</style>

@@ -24,6 +24,7 @@ import ExperienceCard from "../components/molecules/ExperienceCard.astro"
       <ButtonCTA href="">Sobre mí</ButtonCTA>
     </div>
   </Hero>
+  <Section title="Proyectos" id="proyectos">Proyectos</Section>
   <Section title="Experiencia" id="experiencia">
     <ExperienceCard
       employer="Viña Viva"
@@ -43,17 +44,28 @@ import ExperienceCard from "../components/molecules/ExperienceCard.astro"
       HelpDesk. Informar sobre las alertas de seguridad. Configuración del
       firewall Fortinet. Instalación y mantenimiento de equipos informáticos.
     </ExperienceCard>
+    <ExperienceCard
+      employer="FitnessAlvaro"
+      date="20/6/2018 - 30/9/2018"
+      role="Gestor de información para redes sociales"
+    >
+      Creacíon de vídeos para redes sociales y publicaciones. Grabación y
+      edición de vídeos para Youtube. Edición de audio. Creación de gráficos en
+      movimiento necesarios para vídeos, como cuentas atrás o encabezados de
+      vídeo. Diseño y creación de miniaturas para vídeos. Uso de programas de
+      Adobe.
+    </ExperienceCard>
   </Section>
-
-  <style>
-    .logo-memoji {
-      width: 150px;
-      height: auto;
-    }
-    .cta-container {
-      display: flex;
-      flex-direction: row;
-      gap: 8px;
-    }
-  </style>
 </Layout>
+
+<style>
+  .logo-memoji {
+    width: 150px;
+    height: auto;
+  }
+  .cta-container {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+  }
+</style>

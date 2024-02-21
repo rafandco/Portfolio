@@ -1,0 +1,40 @@
+---
+interface Props {
+  title: string
+  img: string
+  type: string
+}
+const { title, img, type } = Astro.props
+---
+
+<article>
+  <a href="">
+    <img src={img} />
+    <h3>{title}</h3>
+    <p class="text-opacity-80">{type}</p>
+    <p class="text-opacity-80">
+      <slot />
+    </p>
+  </a>
+</article>
+
+<style>
+  article {
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border: 2px solid blue;
+    border-radius: 32px;
+    padding: 16px;
+  }
+  a {
+    color: white;
+    text-decoration: none;
+  }
+  img {
+    width: 100%;
+    margin-bottom: 8px;
+    border-radius: 16px;
+  }
+</style>

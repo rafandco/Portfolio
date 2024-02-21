@@ -14,7 +14,7 @@ const { employer, date, role } = Astro.props
   </header>
 
   <p>{role}</p>
-  <p>
+  <p class="text-opacity-80">
     <slot />
   </p>
 </article>
@@ -24,6 +24,7 @@ const { employer, date, role } = Astro.props
     display: flex;
     flex-direction: column;
     gap: 8px;
+    border: 2px solid green;
   }
   header {
     display: flex;

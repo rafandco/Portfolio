@@ -5,6 +5,7 @@ import Hero from "../components/organisms/Hero.astro"
 import Section from "../components/organisms/Section.astro"
 import Layout from "../layouts/Layout.astro"
 import ExperienceCard from "../components/molecules/ExperienceCard.astro"
+import ProjectCard from "../components/molecules/ProjectCard.astro"
 ---
 
 <Layout title="rafanco">
@@ -15,57 +16,85 @@ import ExperienceCard from "../components/molecules/ExperienceCard.astro"
       alt="memoji de rafael"
     />
     <h1>Rafael Díaz</h1>
-    <p>
-      Sí. Soy la persona que necesitas para el proyecto que tienes en mente.
-    </p>
+    <p>Soy la persona que necesitas para el proyecto que tienes en mente.</p>
     <Social />
     <div class="cta-container">
       <ButtonCTA href="">Contactar</ButtonCTA>
       <ButtonCTA href="">Sobre mí</ButtonCTA>
     </div>
   </Hero>
-  <Section title="Proyectos" id="proyectos">Proyectos</Section>
-  <Section title="Experiencia" id="experiencia">
-    <ExperienceCard
-      employer="Viña Viva"
-      date="15/12/2022 - 1/9/2023"
-      role="Desarrollador Web"
-    >
-      Investigación UX y desarrollo de un sitio web para Viña Viva. Asociación
-      para la defensa del patrimonio vitivinícola, en la región del Condado de
-      Huelva.
-    </ExperienceCard>
-    <ExperienceCard
-      employer="Geserisk"
-      date="15/6/2022 - 15/12/2022"
-      role="Analista de ciberseguridad"
-    >
-      Implementación y despliegue de servidores NGINX. Asistencia informática
-      HelpDesk. Informar sobre las alertas de seguridad. Configuración del
-      firewall Fortinet. Instalación y mantenimiento de equipos informáticos.
-    </ExperienceCard>
-    <ExperienceCard
-      employer="FitnessAlvaro"
-      date="20/6/2018 - 30/9/2018"
-      role="Gestor de información para redes sociales"
-    >
-      Creacíon de vídeos para redes sociales y publicaciones. Grabación y
-      edición de vídeos para Youtube. Edición de audio. Creación de gráficos en
-      movimiento necesarios para vídeos, como cuentas atrás o encabezados de
-      vídeo. Diseño y creación de miniaturas para vídeos. Uso de programas de
-      Adobe.
-    </ExperienceCard>
+  <Section title="Proyectos" id="proyectos">
+    <div class="card-wrapper-grid-2col">
+      <ProjectCard
+        title="Viña Viva"
+        img="src/assets/images/vina-viva-3-2.avif"
+        type="Web y UX"
+      >
+        Trabajo de Fin de Grado de Ingeniría del Software, donde realizo un
+        repaso por la plataforma de desarrollo no-code Webflow. Vemos sus
+        limitaciones y usamos herramientas como Zapier, Make de Integromat y
+        Memberstack.
+      </ProjectCard>
+    </div>
   </Section>
-</Layout>
+  <Section title="Experiencia" id="experiencia">
+    <div class="card-wrapper-column">
+      <ExperienceCard
+        employer="Viña Viva"
+        date="15/12/2022 - 1/9/2023"
+        role="Desarrollador Web"
+      >
+        Investigación UX y desarrollo de un sitio web para Viña Viva. Asociación
+        para la defensa del patrimonio vitivinícola, en la región del Condado de
+        Huelva.
+      </ExperienceCard>
+      <ExperienceCard
+        employer="Geserisk"
+        date="15/6/2022 - 15/12/2022"
+        role="Analista de ciberseguridad"
+      >
+        Implementación y despliegue de servidores NGINX. Asistencia informática
+        HelpDesk. Informar sobre las alertas de seguridad. Configuración del
+        firewall Fortinet. Instalación y mantenimiento de equipos informáticos.
+      </ExperienceCard>
+      <ExperienceCard
+        employer="FitnessAlvaro"
+        date="20/6/2018 - 30/9/2018"
+        role="Gestor de información para redes sociales"
+      >
+        Creacíon de vídeos para redes sociales y publicaciones. Grabación y
+        edición de vídeos para Youtube. Edición de audio. Creación de gráficos
+        en movimiento necesarios para vídeos, como cuentas atrás o encabezados
+        de vídeo. Diseño y creación de miniaturas para vídeos. Uso de programas
+        de Adobe.
+      </ExperienceCard>
+    </div>
+  </Section>
 
-<style>
-  .logo-memoji {
-    width: 150px;
-    height: auto;
-  }
-  .cta-container {
-    display: flex;
-    flex-direction: row;
-    gap: 8px;
-  }
-</style>
+  <style>
+    .logo-memoji {
+      width: 150px;
+      height: auto;
+    }
+    .cta-container {
+      display: flex;
+      flex-direction: row;
+      gap: 8px;
+    }
+    .card-wrapper-column {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .card-wrapper-row {
+      display: flex;
+      flex-direction: row;
+      gap: 16px;
+    }
+    .card-wrapper-grid-2col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+  </style>
+</Layout>

@@ -1,18 +1,14 @@
 ---
-import SocialLink from "../atoms/SocialLink.astro";
+import Instagram from "../icons/Instagram.astro"
+import Github from "../icons/Github.astro"
+import LinkedIn from "../icons/LinkedIn.astro"
 ---
 
 <nav>
   <ul>
-    <li>
-      <SocialLink href="" app="instagram" />
-    </li>
-    <li>
-      <SocialLink href="" app="github" />
-    </li>
-    <li>
-      <SocialLink href="" app="linkedin" />
-    </li>
+    <li><a href="https://www.instagram.com/rafandco/"><Instagram /></a></li>
+    <li><a href="https://github.com/rafandco"><Github /></a></li>
+    <li><a href="https://www.linkedin.com/in/rafael-díaz-garcía/"><LinkedIn /></a></li>
   </ul>
 </nav>
 
@@ -33,5 +29,14 @@ import SocialLink from "../atoms/SocialLink.astro";
     list-style-type: none;
     margin: 8px;
     padding: 0;
+  }
+  a {
+    display: block;
+    width: 24px;
+    height: 24px;
+    margin: 0;
+    padding: 8px;
+    color: white;
+  }
   }
 </style>

@@ -6,6 +6,17 @@ import Section from "../components/organisms/Section.astro"
 import Layout from "../layouts/Layout.astro"
 import ExperienceCard from "../components/molecules/ExperienceCard.astro"
 import ProjectCard from "../components/molecules/ProjectCard.astro"
+
+interface Frontmatter {
+  title: string
+  imgSrc: string
+  type: string
+  description: string
+  href: string
+}
+
+const projects = await Astro.glob<Frontmatter>("./projects/*.mdx")
+console.log(projects)
 ---
 
 <Layout title="rafanco">
@@ -25,16 +36,18 @@ import ProjectCard from "../components/molecules/ProjectCard.astro"
   </Hero>
   <Section title="Proyectos" id="proyectos">
     <div class="card-wrapper-grid-2col">
-      <ProjectCard
-        title="Viña Viva"
-        img="src/assets/images/vina-viva-3-2.avif"
-        type="Web y UX"
-      >
-        Trabajo de Fin de Grado de Ingeniría del Software, donde realizo un
-        repaso por la plataforma de desarrollo no-code Webflow. Vemos sus
-        limitaciones y usamos herramientas como Zapier, Make de Integromat y
-        Memberstack.
-      </ProjectCard>
+      {
+        projects.map((projects) => (
+          <ProjectCard
+            title={projects.frontmatter.title}
+            imgSrc={projects.frontmatter.imgSrc}
+            type={projects.frontmatter.type}
+            url={"/projects/" + projects.frontmatter.href}
+          >
+            {projects.frontmatter.description}
+          </ProjectCard>
+        ))
+      }
     </div>
   </Section>
   <Section title="Experiencia" id="experiencia">

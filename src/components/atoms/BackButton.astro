@@ -1,0 +1,26 @@
+---
+import ChevronLeft from "../icons/ChevronLeft.astro"
+interface Props {
+  href: string
+}
+
+const { href } = Astro.props
+---
+
+<a href={href}>
+  <ChevronLeft />
+  <slot />
+</a>
+
+<style>
+  a {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    color: #f5deb3;
+    text-decoration: none;
+    font-weight: 600;
+  }
+</style>

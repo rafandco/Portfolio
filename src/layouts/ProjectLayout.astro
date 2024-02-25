@@ -1,12 +1,8 @@
 ---
-import Header from "../components/organisms/Header.astro"
 import Footer from "../components/organisms/Footer.astro"
+import BackButton from "../components/atoms/BackButton.astro"
 
-interface Props {
-  title: string
-}
-
-const { title } = Astro.props
+const { frontmatter } = Astro.props
 ---
 
 <!doctype html>
@@ -18,18 +14,20 @@ const { title } = Astro.props
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link href="https://fonts.cdnfonts.com/css/satoshi" rel="stylesheet" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
+    <title>{frontmatter.title}</title>
   </head>
   <body>
-    <Header />
+    <header>
+      <BackButton href="/#proyectos">Atrás</BackButton>
+      <h1>{frontmatter.title}</h1>
+    </header>
     <main>
       <slot />
     </main>
     <Footer />
   </body>
 </html>
-
-<style is:global>
+<style>
   body {
     min-height: 100vh;
     display: grid;
@@ -44,18 +42,32 @@ const { title } = Astro.props
     font-family: "Satoshi", sans-serif;
     color: #ffffff;
   }
-  main {
-    grid-area: main;
+  header {
+    box-sizing: border-box;
+    width: 960px;
+    grid-area: header;
     display: flex;
-    flex-direction: column;
-    gap: 16px;
+    flex-direction: row;
     align-items: center;
+    gap: 16px;
+    margin: 8px auto 8px auto;
+    border: 2px red solid;
   }
   h1 {
     font-size: 40px;
     line-height: 1.5em;
     letter-spacing: 0.05em;
     margin: 0px;
+  }
+  main {
+    box-sizing: border-box;
+    grid-area: main;
+    width: 960px;
+    margin: 8px auto 8px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    border: 2px blue solid;
   }
   h2 {
     font-size: 32px;
@@ -74,11 +86,5 @@ const { title } = Astro.props
     line-height: 1.5em;
     letter-spacing: 0.05em;
     margin: 0px;
-  }
-  .text-opacity-80 {
-    color: rgba(255, 255, 255, 0.8);
-  }
-  .text-bold {
-    font-weight: bold;
   }
 </style>

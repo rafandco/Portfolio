@@ -1,17 +1,18 @@
 ---
 interface Props {
   title: string
-  img: string
+  imgSrc: string
   type: string
+  href: string
 }
-const { title, img, type } = Astro.props
+const { title, imgSrc, type, href } = Astro.props
 ---
 
 <article>
-  <a href="">
-    <img src={img} />
+  <a href={href}>
+    <img src={imgSrc} />
     <h3>{title}</h3>
-    <p class="text-opacity-80">{type}</p>
+    <p class="text-opacity-80 text-bold">{type}</p>
     <p class="text-opacity-80">
       <slot />
     </p>

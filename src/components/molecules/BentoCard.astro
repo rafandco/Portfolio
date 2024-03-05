@@ -1,0 +1,29 @@
+---
+interface Props {
+  title: string
+  xStart: string
+  xEnd: string
+  yStart: string
+  yEnd: string
+  href?: string
+}
+const { title, xStart, xEnd, yStart, yEnd, href } = Astro.props
+---
+
+<article>
+  <a href={href}>
+    <h3>{title}</h3>
+    <p class="text-opacity-80">
+      <slot />
+    </p>
+  </a>
+</article>
+<style define:vars={{ xStart, xEnd, yStart, yEnd }}>
+  article {
+    grid-column: var(--xStart) / var(--xEnd);
+    grid-row: var(--yStart) / var(--yEnd);
+    padding: 16px;
+    border: 2px orange solid;
+    border-radius: 16px;
+  }
+</style>

@@ -1,11 +1,12 @@
 ---
 import ButtonCTA from "../components/atoms/ButtonCTA.astro"
+import ExperienceCard from "../components/molecules/ExperienceCard.astro"
+import ProjectCard from "../components/molecules/ProjectCard.astro"
 import Social from "../components/molecules/Social.astro"
 import Hero from "../components/organisms/Hero.astro"
 import Section from "../components/organisms/Section.astro"
+import BentoCard from "../components/molecules/BentoCard.astro"
 import Layout from "../layouts/Layout.astro"
-import ExperienceCard from "../components/molecules/ExperienceCard.astro"
-import ProjectCard from "../components/molecules/ProjectCard.astro"
 
 interface Frontmatter {
   title: string
@@ -31,7 +32,7 @@ console.log(projects)
     <Social />
     <div class="cta-container">
       <ButtonCTA href="">Contactar</ButtonCTA>
-      <ButtonCTA href="">Sobre mí</ButtonCTA>
+      <ButtonCTA href="#sobre-mi">Sobre mí</ButtonCTA>
     </div>
   </Hero>
   <Section title="Proyectos" id="proyectos">
@@ -84,7 +85,38 @@ console.log(projects)
     </div>
   </Section>
   <Section title="Sobre mí" id="sobre-mi">
-    <div></div>
+    <div class="card-wrapper-bento">
+      <BentoCard title="Educación" xStart="1" xEnd="3" yStart="1" yEnd="3"
+        >Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus
+        delectus incidunt quas ratione non nihil animi voluptas fugit impedit
+        pariatur sapiente eveniet unde, laborum autem provident quibusdam. Ipsum
+        voluptate suscipit accusantium quas adipisci quae, distinctio pariatur
+        exercitationem blanditiis nihil officiis quo tempore esse laudantium
+        tenetur cum sint delectus placeat? Voluptas repellat praesentium ipsum
+        est, quas distinctio, tempora sequi inventore dignissimos laboriosam
+        similique aspernatur ratione pariatur animi natus? Deleniti libero,
+        animi eum aliquam quidem suscipit earum, sequi necessitatibus ea cum
+        deserunt incidunt pariatur aperiam aspernatur inventore repellat quos ab
+        modi voluptates culpa autem perspiciatis? Aspernatur natus
+        necessitatibus repudiandae debitis veritatis maxime.
+      </BentoCard>
+      <BentoCard title="Habilidades" xStart="3" xEnd="4" yStart="1" yEnd="2"
+        >Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores,
+        mollitia.
+      </BentoCard>
+      <BentoCard title="Experiencias" xStart="3" xEnd="4" yStart="2" yEnd="4"
+        >Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores,
+        mollitia.
+      </BentoCard>
+      <BentoCard title="Idiomas" xStart="1" xEnd="3" yStart="3" yEnd="4"
+        >Lorem ipsum dolor sit amet consectetur adipisicing elit. Est sit enim
+        laborum laboriosam perferendis optio harum expedita nulla rerum. Quos
+        doloribus quis laborum impedit architecto aut neque laudantium, fugit
+        beatae praesentium molestiae possimus natus debitis commodi earum,
+        repellendus assumenda omnis, suscipit iusto consequuntur sit laboriosam!
+        Accusamus est vel minima obcaecati?
+      </BentoCard>
+    </div>
   </Section>
 
   <style>
@@ -111,6 +143,14 @@ console.log(projects)
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 16px;
+    }
+    .card-wrapper-bento {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, auto);
+      justify-items: stretch;
+      align-items: stretch;
+      grid-gap: 16px;
     }
   </style>
 </Layout>

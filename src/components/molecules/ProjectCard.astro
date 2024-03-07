@@ -1,11 +1,17 @@
 ---
+import Github from "../icons/Github.astro"
+import Web from "../icons/Web.astro"
+import ButtonTransparent from "../atoms/ButtonTransparent.astro"
+
 interface Props {
   title: string
   imgSrc: string
   type: string
   href: string
+  gitHub?: string
+  web?: string
 }
-const { title, imgSrc, type, href } = Astro.props
+const { title, imgSrc, type, href, gitHub, web } = Astro.props
 ---
 
 <article>
@@ -17,6 +23,25 @@ const { title, imgSrc, type, href } = Astro.props
       <slot />
     </p>
   </a>
+  {
+    (gitHub || web) && (
+      <footer>
+        {gitHub && (
+          <ButtonTransparent href={gitHub}>
+            <Github />
+            Ver en github
+          </ButtonTransparent>
+        )}
+
+        {web && (
+          <ButtonTransparent href={web}>
+            <Web />
+            Abrir Web
+          </ButtonTransparent>
+        )}
+      </footer>
+    )
+  }
 </article>
 
 <style>
@@ -24,7 +49,7 @@ const { title, imgSrc, type, href } = Astro.props
     width: auto;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 16px;
     border: 2px solid blue;
     border-radius: 32px;
     padding: 16px;
@@ -37,5 +62,12 @@ const { title, imgSrc, type, href } = Astro.props
     width: 100%;
     margin-bottom: 8px;
     border-radius: 16px;
+  }
+  footer {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    gap: 8px;
   }
 </style>

@@ -1,10 +1,19 @@
+---
+import Home from "../icons/Home.astro"
+import Projects from "../icons/Projects.astro"
+import Experience from "../icons/Experience.astro"
+import AboutMe from "../icons/AboutMe.astro"
+---
+
 <header>
   <nav>
     <ul>
-      <li><a href="#inicio">Inicio</a></li>
-      <li><a href="#proyectos">Proyectos</a></li>
-      <li><a href="#experiencia">Experiencia</a></li>
-      <li><a href="#sobre-mi">Sobre mí</a></li>
+      <li>
+        <a href="#inicio"> <div><Home /></div>Inicio</a>
+      </li>
+      <li><a href="#proyectos"><div><Projects /></div>Proyectos</a></li>
+      <li><a href="#experiencia"><div><Experience /></div>Experiencia</a></li>
+      <li><a href="#sobre-mi"><div><AboutMe /></div>Sobre mí</a></li>
     </ul>
   </nav>
 </header>
@@ -32,6 +41,9 @@
     margin: 8px;
     padding: 8px 0;
   }
+  div {
+    display: none;
+  }
   a {
     text-decoration: none;
     color: #ffffff;
@@ -40,5 +52,26 @@
   }
   a:hover {
     background-color: var(--gray-light);
+  }
+  @media (max-width: 767px) {
+    ul {
+      padding: 0px 8px;
+      border-radius: 24px;
+    }
+    li {
+      margin: 0px;
+    }
+    div {
+      display: block;
+    }
+    a {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 8px 16px;
+      gap: 4px;
+      font-size: 12px;
+      border-radius: 16px;
+    }
   }
 </style>

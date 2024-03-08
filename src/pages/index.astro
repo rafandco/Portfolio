@@ -31,7 +31,9 @@ console.log(projects)
       alt="memoji de rafael"
     />
     <h1>Rafael Díaz</h1>
-    <p>Soy la persona que necesitas para el proyecto que tienes en mente.</p>
+    <p class="text-center">
+      Soy la persona que necesitas para el proyecto que tienes en mente.
+    </p>
     <Social />
     <div class="cta-container">
       <ButtonWheat href="">Contactar</ButtonWheat>
@@ -39,7 +41,7 @@ console.log(projects)
     </div>
   </Hero>
   <Section title="Proyectos" id="proyectos">
-    <div class="card-wrapper-grid-2col">
+    <div class="card-wrapper-2col">
       {
         projects.map((projects) => (
           <ProjectCard
@@ -145,7 +147,7 @@ console.log(projects)
       flex-direction: row;
       gap: 16px;
     }
-    .card-wrapper-grid-2col {
+    .card-wrapper-2col {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 16px;
@@ -157,6 +159,18 @@ console.log(projects)
       justify-items: stretch;
       align-items: stretch;
       grid-gap: 16px;
+    }
+    /* Media query para dispositivos móviles */
+    @media (max-width: 767px) {
+      .card-wrapper-2col {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .card-wrapper-bento {
+        display: flex;
+        flex-direction: column;
+      }
     }
   </style>
 </Layout>

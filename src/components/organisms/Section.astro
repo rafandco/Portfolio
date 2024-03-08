@@ -23,4 +23,17 @@ const { title, id } = Astro.props
     border: 2px red solid;
     gap: 16px;
   }
+  /* Media query para dispositivos móviles */
+  @media (max-width: 767px) {
+    section {
+      width: 360px;
+    }
+  }
+
+  /* Media query para tablets */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    section {
+      width: 768px;
+    }
+  }
 </style>

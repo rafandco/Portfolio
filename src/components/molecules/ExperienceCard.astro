@@ -29,8 +29,13 @@ const { employer, date, role } = Astro.props
   header {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
     justify-content: space-between;
     align-items: baseline;
+  }
+  /* Media query para dispositivos móviles */
+  @media (max-width: 767px) {
+    header {
+      flex-direction: column;
+    }
   }
 </style>

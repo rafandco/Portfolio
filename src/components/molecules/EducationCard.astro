@@ -1,0 +1,33 @@
+---
+interface Props {
+  institution: string
+  date: string
+  title: string
+}
+const { institution, date, title } = Astro.props
+---
+
+<article>
+  <header>
+    <h4>{title}</h4>
+    <p class="text-bold">{institution}</p>
+    <p>{date}</p>
+  </header>
+
+  <p class="text-opacity-80">
+    <slot />
+  </p>
+</article>
+
+<style>
+  article {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  header {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+</style>

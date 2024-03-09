@@ -1,6 +1,7 @@
 ---
 import ButtonWheat from "../components/atoms/ButtonWheat.astro"
 import LanguageItem from "../components/atoms/LanguageItem.astro"
+import EducationCard from "../components/molecules/EducationCard.astro"
 import ButtonGhost from "../components/atoms/ButtonGhost.astro"
 import ExperienceCard from "../components/molecules/ExperienceCard.astro"
 import ProjectCard from "../components/molecules/ProjectCard.astro"
@@ -95,18 +96,23 @@ console.log(projects)
   <Section title="Sobre mí" id="sobre-mi">
     <div class="card-wrapper-bento">
       <BentoCard title="Educación" xStart="1" xEnd="3" yStart="1" yEnd="3"
-      >Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus
-        delectus incidunt quas ratione non nihil animi voluptas fugit impedit
-        pariatur sapiente eveniet unde, laborum autem provident quibusdam. Ipsum
-        voluptate suscipit accusantium quas adipisci quae, distinctio pariatur
-        exercitationem blanditiis nihil officiis quo tempore esse laudantium
-        tenetur cum sint delectus placeat? Voluptas repellat praesentium ipsum
-        est, quas distinctio, tempora sequi inventore dignissimos laboriosam
-        similique aspernatur ratione pariatur animi natus? Deleniti libero,
-        animi eum aliquam quidem suscipit earum, sequi necessitatibus ea cum
-        deserunt incidunt pariatur aperiam aspernatur inventore repellat quos ab
-        modi voluptates culpa autem perspiciatis? Aspernatur natus
-        necessitatibus repudiandae debitis veritatis maxime.
+      ><div class="card-wrapper-column">
+          <EducationCard
+            institution="Google Coursera Certificates"
+            date="25/8/2023 - Actualmente"
+            title="Google UX "
+          />
+          <EducationCard
+            institution="Universidad de Tesalia, Grecia"
+            date="11/9/2021 - 8/6/2022"
+            title="Erasmus + Computer engineering"
+          />
+          <EducationCard
+            institution="ETSII, Universidad de Sevilla, España"
+            date="22/9/2017 - 17/7/2023"
+            title="Ingeniería del Software"
+          />
+        </div>
       </BentoCard>
       <BentoCard title="Habilidades" xStart="3" xEnd="4" yStart="1" yEnd="2"
       >Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores,

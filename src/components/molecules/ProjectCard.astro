@@ -16,7 +16,7 @@ const { title, imgSrc, type, href, gitHub, web } = Astro.props
 
 <article>
   <a href={href}>
-    <img src={imgSrc} />
+    <img src={imgSrc} alt={"Captura de la web" + title} />
     <h3>{title}</h3>
     <p class="text-opacity-80 text-bold">{type}</p>
     <p class="text-opacity-80">

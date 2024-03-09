@@ -59,8 +59,11 @@ const { title, imgSrc, type, href, gitHub, web } = Astro.props
     background-color: var(--gray-light);
   }
   a {
+    display: flex;
+    flex-direction: column;
     color: white;
     text-decoration: none;
+    gap: 8px;
   }
   img {
     width: 100%;

@@ -1,5 +1,6 @@
 ---
 import ButtonWheat from "../components/atoms/ButtonWheat.astro"
+import LanguageItem from "../components/atoms/LanguageItem.astro"
 import ButtonGhost from "../components/atoms/ButtonGhost.astro"
 import ExperienceCard from "../components/molecules/ExperienceCard.astro"
 import ProjectCard from "../components/molecules/ProjectCard.astro"
@@ -116,12 +117,11 @@ console.log(projects)
         mollitia.
       </BentoCard>
       <BentoCard title="Idiomas" xStart="1" xEnd="3" yStart="3" yEnd="4"
-      >Lorem ipsum dolor sit amet consectetur adipisicing elit. Est sit enim
-        laborum laboriosam perferendis optio harum expedita nulla rerum. Quos
-        doloribus quis laborum impedit architecto aut neque laudantium, fugit
-        beatae praesentium molestiae possimus natus debitis commodi earum,
-        repellendus assumenda omnis, suscipit iusto consequuntur sit laboriosam!
-        Accusamus est vel minima obcaecati?
+      ><div class="card-wrapper-row-space-around">
+          <LanguageItem language="Español" level="Nativo" />
+          <LanguageItem language="Inglés" level="Aptis C" />
+          <LanguageItem language="Alemán" level="A1" />
+        </div>
       </BentoCard>
     </div>
   </Section>
@@ -145,6 +145,13 @@ console.log(projects)
     .card-wrapper-row {
       display: flex;
       flex-direction: row;
+      gap: 16px;
+    }
+    .card-wrapper-row-space-around {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
       gap: 16px;
     }
     .card-wrapper-2col {

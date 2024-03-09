@@ -1,0 +1,37 @@
+---
+import SpainFlag from "../icons/SpainFlag.astro"
+import UKFlag from "../icons/UKFlag.astro"
+import GermanyFlag from "../icons/GermanyFlag.astro"
+
+interface Props {
+  language: string
+  level: string
+}
+
+const { language, level } = Astro.props
+---
+
+<!-- Icons from https://www.svgrepo.com/collection/countrys-flags/5 -->
+<article>
+  {
+    language == "Español" ? (
+      <SpainFlag />
+    ) : language == "Inglés" ? (
+      <UKFlag />
+    ) : language == "Alemán" ? (
+      <GermanyFlag />
+    ) : (
+      console.error("Error, noy hay icono para los idiomas")
+    )
+  }
+  <h4>{language}</h4>
+  <p>{level}</p>
+</article>
+
+<style>
+  article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+</style>

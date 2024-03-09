@@ -5,21 +5,19 @@ interface Props {
   xEnd: string
   yStart: string
   yEnd: string
-  href?: string
 }
-const { title, xStart, xEnd, yStart, yEnd, href } = Astro.props
+const { title, xStart, xEnd, yStart, yEnd } = Astro.props
 ---
 
 <article>
-  <a href={href}>
-    <h3>{title}</h3>
-    <p class="text-opacity-80">
-      <slot />
-    </p>
-  </a>
+  <h3>{title}</h3>
+  <slot />
 </article>
 <style define:vars={{ xStart, xEnd, yStart, yEnd }}>
   article {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
     grid-column: var(--xStart) / var(--xEnd);
     grid-row: var(--yStart) / var(--yEnd);
     padding: 16px;

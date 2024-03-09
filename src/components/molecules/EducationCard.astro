@@ -1,4 +1,6 @@
 ---
+import University from "../icons/University.astro"
+import Google from "../icons/Google.astro"
 interface Props {
   institution: string
   date: string
@@ -9,25 +11,54 @@ const { institution, date, title } = Astro.props
 
 <article>
   <header>
-    <h4>{title}</h4>
-    <p class="text-bold">{institution}</p>
-    <p>{date}</p>
+    <div class="icon-wrapper">
+      {
+        institution.includes("Universidad") ? (
+          <University />
+        ) : institution.includes("Google") ? (
+          <Google />
+        ) : (
+          console.error("Error, no hay icono en la institución")
+        )
+      }
+    </div>
+    <div class="info-wrapper">
+      <h4>
+        {title}
+      </h4>
+      <p class="text-bold">{institution}</p>
+      <p>{date}</p>
+    </div>
   </header>
 
   <p class="text-opacity-80">
     <slot />
   </p>
-</article>
 
-<style>
-  article {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-  header {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-</style>
+  <style>
+    article {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    header {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 16px;
+    }
+    .icon-wrapper {
+      display: flex;
+      align-items: center;
+      justify-items: center;
+      background-color: var(--gray-light);
+      padding: 8px;
+      border-radius: 24px;
+    }
+    .info-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+  </style>
+</article>

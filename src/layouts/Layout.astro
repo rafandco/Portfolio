@@ -16,7 +16,6 @@ const { title } = Astro.props
     <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link href="https://fonts.cdnfonts.com/css/satoshi" rel="stylesheet" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
@@ -26,7 +25,12 @@ const { title } = Astro.props
       <slot />
     </main>
     <Footer />
-  </body><style is:global>
+  </body>
+  <style is:global>
+    @font-face {
+      font-family: "Satoshi";
+      src: url("/fonts/Satoshi-Variable.woff2") format("woff2");
+    }
     :root {
       --green-dark: #243838;
       --green-medium: #2f4f4f;

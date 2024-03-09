@@ -12,7 +12,6 @@ const { frontmatter } = Astro.props
     <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link href="https://fonts.cdnfonts.com/css/satoshi" rel="stylesheet" />
     <meta name="generator" content={Astro.generator} />
     <title>{frontmatter.title}</title>
   </head>
@@ -28,6 +27,10 @@ const { frontmatter } = Astro.props
   </body>
 </html>
 <style>
+  @font-face {
+    font-family: "Satoshi";
+    src: url("/fonts/Satoshi-Variable.woff2") format("woff2");
+  }
   :root {
     --green-dark: #243838;
     --green-medium: #2f4f4f;

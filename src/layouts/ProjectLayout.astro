@@ -1,4 +1,6 @@
 ---
+import "../styles/global.css"
+
 import Footer from "../components/organisms/Footer.astro"
 import BackButton from "../components/atoms/BackButton.astro"
 
@@ -27,36 +29,6 @@ const { frontmatter } = Astro.props
   </body>
 </html>
 <style>
-  @font-face {
-    font-family: "Satoshi";
-    src: url("/fonts/Satoshi-Variable.woff2") format("woff2");
-    font-display: swap;
-  }
-  :root {
-    --green-dark: #243838;
-    --green-medium: #2f4f4f;
-    --green-light: #456d6d;
-    --wheat-dark: #ebd5ad;
-    --wheat-medium: #f9ebd2;
-    --wheat-light: #fefbf6;
-    --gray-dark: #202020;
-    --gray-medium: #2e2e2e;
-    --gray-light: #3d3d3d;
-  }
-  body {
-    min-height: 100vh;
-    display: grid;
-    grid:
-      "header" auto
-      "main" 1fr
-      "footer" auto
-      / 1fr;
-    gap: 16px;
-    margin: 0;
-    background-color: #202020;
-    font-family: "Satoshi", sans-serif;
-    color: #ffffff;
-  }
   header {
     box-sizing: border-box;
     width: 960px;
@@ -78,34 +50,16 @@ const { frontmatter } = Astro.props
     align-items: left;
     border: 2px blue solid;
   }
-  h1 {
-    font-size: 40px;
-    line-height: 1.25em;
-    letter-spacing: 0.05em;
-    margin: 0px;
+    /* Media query para dispositivos móviles */
+  @media (max-width: 767px) {
+    header, main {
+      width: 360px;
+    }
   }
-  h2 {
-    font-size: 32px;
-    line-height: 1.25em;
-    letter-spacing: 0.05em;
-    margin: 0px;
-  }
-  h3 {
-    font-size: 28px;
-    line-height: 1.25em;
-    letter-spacing: 0.05em;
-    margin: 0px;
-  }
-  h4 {
-    font-size: 24px;
-    line-height: 1.25em;
-    letter-spacing: 0.05em;
-    margin: 0px;
-  }
-  p {
-    font-size: 16px;
-    line-height: 1.5em;
-    letter-spacing: 0.05em;
-    margin: 0px;
-  }
+
+  /* Media query para tablets */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    header, main {
+      width: 768px;
+    }
 </style>

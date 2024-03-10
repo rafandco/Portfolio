@@ -1,0 +1,179 @@
+---
+import Badge from "../components/atoms/Badge.astro"
+import LanguageItem from "../components/atoms/LanguageItem.astro"
+import EducationCard from "../components/molecules/EducationCard.astro"
+import Section from "../components/organisms/Section.astro"
+import BentoCard from "../components/molecules/BentoCard.astro"
+import Car from "../components/icons/Car.astro"
+import Compass from "../components/icons/Compass.astro"
+import Certificate from "../components/icons/Certificate.astro"
+import Languague from "../components/icons/Languague.astro"
+---
+
+<!-- TODO: Añadir sección de index correspondiente -->
+<Section title="Sobre mí" id="sobre-mi">
+  <p class="text-big-info text-center">
+    Ingeniero de Software y diseñador UX con ganas de cambiar el mundo, uniendo
+    arte y tecnología. Comprometido con la innovación para crear proyectos
+    centrados en el usuario.
+  </p>
+  <div class="card-wrapper-bento">
+    <BentoCard title="Educación" xStart="1" xEnd="3" yStart="1" yEnd="3">
+      <div class="card-wrapper-column">
+        <EducationCard
+          institution="Universidad de Huelva, España"
+          date="2/11/2023 - Actualmente"
+          title="Máster en formación del profesorado "
+        />
+        <EducationCard
+          institution="Google Coursera Certificates"
+          date="25/8/2023 - Actualmente"
+          title="Google UX "
+        />
+        <EducationCard
+          institution="Universidad de Tesalia, Grecia"
+          date="11/9/2021 - 8/6/2022"
+          title="Erasmus + Computer engineering"
+        />
+        <EducationCard
+          institution="ETSII, Universidad de Sevilla, España"
+          date="22/9/2017 - 17/7/2023"
+          title="Ingeniería Informática. Ingeniería del Software"
+        />
+      </div>
+    </BentoCard>
+    <BentoCard title="Habilidades" xStart="3" xEnd="4" yStart="1" yEnd="2">
+      <ul>
+        <li class="li-badge-wrapper">
+          <div class="badge-wrapper">
+            <Badge>HTML</Badge>
+            <Badge>CSS</Badge>
+            <Badge>Git</Badge>
+            <Badge>Astro</Badge>
+            <Badge>Diseño UI</Badge>
+            <Badge>Mapas de empatía</Badge>
+            <Badge>Investigación UX</Badge>
+            <Badge>Figma</Badge>
+            <Badge>Python</Badge>
+            <Badge>Webflow</Badge>
+            <Badge>Nginx</Badge>
+            <Badge>Máquinas virtuales</Badge>
+          </div>
+        </li>
+        <li class="li-badge-wrapper">
+          <div class="badge-wrapper">
+            <Badge>Gestión de proyectos</Badge>
+            <Badge>Autónomo</Badge>
+            <Badge>Metodologías Ágiles</Badge>
+            <Badge>Colaborativo</Badge>
+            <Badge>Creativo</Badge>
+            <Badge>Pensamiento crítico</Badge>
+          </div>
+        </li>
+      </ul>
+    </BentoCard>
+    <BentoCard title="Otros datos" xStart="3" xEnd="4" yStart="2" yEnd="4">
+      <ul>
+        <li>
+          <div class="icon-wrapper"><Certificate /></div>
+          <div>
+            <p>Certificados:</p>
+            <p>Responsive Web Design (freeCodeCamp)</p>
+            <p>NSE1, NSE2, NSE3 (Fortinet)</p>
+          </div>
+        </li>
+
+        <li>
+          <div class="icon-wrapper"><Car /></div><p>Permiso B de conducir</p>
+        </li>
+        <li>
+          <div class="icon-wrapper"><Languague /></div><p>
+            Inmersión lingüística UIMP
+          </p>
+        </li>
+        <li>
+          <div class="icon-wrapper"><Compass /></div>
+          <div>
+            <p>Viajes:</p>
+            <p>Italia (Roma, Venecia)</p>
+            <p>Grecia (Atenas, Tesalónica, Creta, Meteora, Volos)</p>
+            <p>Croacia (Zagreb)</p>
+            <p>Francia (París)</p>
+          </div>
+        </li>
+      </ul>
+    </BentoCard>
+
+    <BentoCard title="Idiomas" xStart="1" xEnd="3" yStart="3" yEnd="4">
+      <div class="card-wrapper-row-space-around">
+        <LanguageItem language="Español" level="Nativo" />
+        <LanguageItem language="Inglés" level="Aptis C" />
+        <LanguageItem language="Alemán" level="A1" />
+      </div>
+    </BentoCard>
+  </div>
+</Section>
+
+<style>
+  .card-wrapper-bento {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, auto);
+    justify-items: stretch;
+    align-items: stretch;
+    grid-gap: 16px;
+  }
+  .card-wrapper-column {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  ul {
+    margin: -8px 0px;
+    padding: 0;
+  }
+  li {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    list-style: none;
+    padding: 8px 0px;
+  }
+
+  li:not(:first-child) {
+    border-top: 1px solid var(--gray-light);
+  }
+  .li-badge-wrapper {
+    padding: 12px 0px;
+  }
+  .badge-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .icon-wrapper {
+    color: var(--wheat-medium);
+  }
+  .card-wrapper-row-space-around {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 16px;
+  }
+  /* Media query para dispositivos móviles */
+  @media (max-width: 767px) {
+    .card-wrapper-2col {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    .card-wrapper-bento {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+</style>

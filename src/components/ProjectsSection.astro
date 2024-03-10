@@ -1,0 +1,51 @@
+---
+import ProjectCard from "../components/molecules/ProjectCard.astro"
+import Section from "../components/organisms/Section.astro"
+
+interface Frontmatter {
+  title: string
+  imgSrc: string
+  type: string
+  description: string
+  href: string
+  gitHub?: string
+  web?: string
+}
+
+const projects = await Astro.glob<Frontmatter>("../pages/projects/*.mdx")
+console.log(projects)
+---
+
+<!-- TODO: Añadir sección de index correspondiente -->
+<Section title="Proyectos" id="proyectos">
+  <div>
+    {
+      projects.map((projects) => (
+        <ProjectCard
+          title={projects.frontmatter.title}
+          imgSrc={projects.frontmatter.imgSrc}
+          type={projects.frontmatter.type}
+          href={"/projects/" + projects.frontmatter.href}
+          gitHub={projects.frontmatter.gitHub}
+          web={projects.frontmatter.web}
+        >
+          {projects.frontmatter.description}
+        </ProjectCard>
+      ))
+    }
+  </div>
+</Section>
+<style>
+  div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  @media (max-width: 767px) {
+    div {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+  }
+</style>

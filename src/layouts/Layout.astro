@@ -1,4 +1,5 @@
 ---
+import "../styles/global.css"
 import Header from "../components/organisms/Header.astro"
 import Footer from "../components/organisms/Footer.astro"
 
@@ -26,84 +27,4 @@ const { title } = Astro.props
     </main>
     <Footer />
   </body>
-  <style is:global>
-    @font-face {
-      font-family: "Satoshi";
-      src: url("/fonts/Satoshi-Variable.woff2") format("woff2");
-      font-display: swap;
-    }
-    :root {
-      --green-dark: #243838;
-      --green-medium: #2f4f4f;
-      --green-light: #456d6d;
-      --wheat-dark: #ebd5ad;
-      --wheat-medium: #f9ebd2;
-      --wheat-light: #fefbf6;
-      --gray-dark: #202020;
-      --gray-medium: #2e2e2e;
-      --gray-light: #3d3d3d;
-      --card-padding: 16px;
-    }
-
-    body {
-      min-height: 100vh;
-      display: grid;
-      grid:
-        "header" auto
-        "main" 1fr
-        "footer" auto
-        / 1fr;
-      gap: 16px;
-      margin: 0;
-      background-color: var(--gray-dark);
-      font-family: "Satoshi", sans-serif;
-      color: #ffffff;
-    }
-    main {
-      grid-area: main;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      align-items: center;
-    }
-    h1 {
-      font-size: 40px;
-      line-height: 1.25em;
-      letter-spacing: 0.05em;
-      margin: 0px;
-    }
-    h2 {
-      font-size: 32px;
-      line-height: 1.25em;
-      letter-spacing: 0.05em;
-      margin: 0px;
-    }
-    h3 {
-      font-size: 28px;
-      line-height: 1.25em;
-      letter-spacing: 0.05em;
-      margin: 0px;
-    }
-    h4 {
-      font-size: 24px;
-      line-height: 1.25em;
-      letter-spacing: 0.05em;
-      margin: 0px;
-    }
-    p {
-      font-size: 16px;
-      line-height: 1.5em;
-      letter-spacing: 0.05em;
-      margin: 0px;
-    }
-    .text-opacity-80 {
-      color: rgba(255, 255, 255, 0.8);
-    }
-    .text-bold {
-      font-weight: bold;
-    }
-    .text-center {
-      text-align: center;
-    }
-  </style>
 </html>

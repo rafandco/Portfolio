@@ -1,6 +1,6 @@
 import { defineConfig } from "astro/config"
 import mdx from "@astrojs/mdx"
-import codeMdxTheme from "./styles/OneDark-Pro-darker.json"
+import codeMdxTheme from "./src/styles/OneDark-Pro-darker.json"
 
 // Change background color for the code Mdx theme
 const theme = {

@@ -2,6 +2,9 @@
 import "../styles/global.css"
 import Footer from "../components/organisms/Footer.astro"
 import BackButton from "../components/atoms/BackButton.astro"
+import ButtonTransparent from "../components/atoms/ButtonTransparent.astro"
+import Github from "../components/icons/Github.astro"
+import Web from "../components/icons/Web.astro"
 
 const { frontmatter } = Astro.props
 ---
@@ -23,7 +26,7 @@ const { frontmatter } = Astro.props
     </header>
     <main>
       <!-- TODO: Componetizar imagenes de img-wrapper-bento -->
-      <div class="img-wrapper-bento">
+      {(frontmatter.bentoMockupSrc1 && frontmatter.bentoMockupSrc2 && frontmatter.bentoMockupSrc3) && <div class="img-wrapper-bento">
         <img
           class="mockups"
           src={frontmatter.bentoMockupSrc1}
@@ -36,15 +39,34 @@ const { frontmatter } = Astro.props
           src={frontmatter.bentoMockupSrc2}
           alt="Mockup"
           style="grid-column: 3 / 4;
-          grid-row: 0 / 1;"
+          grid-row: 1 / 2;"
         /> <img
           class="mockups"
           src={frontmatter.bentoMockupSrc3}
           alt="Mockup"
           style="grid-column: 3 / 4;
-          grid-row: 1 / 2;"
+          grid-row: 2 / 3;"
         />
+      </div>}
+      {(frontmatter.gitHub || frontmatter.web) && (
+      <div class="button-wrapper">
+        {frontmatter.gitHub && (
+          <ButtonTransparent href={frontmatter.gitHub}>
+            <Github />
+            Github
+          </ButtonTransparent>
+        )}
+
+        {frontmatter.web && (
+          <ButtonTransparent href={frontmatter.web}>
+            <Web />
+            Web
+          </ButtonTransparent>
+        )}
       </div>
+    )
+  }
+      
       <slot />
     </main>
     <Footer />
@@ -71,7 +93,7 @@ const { frontmatter } = Astro.props
     width: 960px;
     margin: 0px auto 0px auto;
     display: flex;
-    align-items: start;
+    align-items: stretch;
     padding: var(--card-padding);
     margin-bottom: 16px;
   }
@@ -84,9 +106,14 @@ const { frontmatter } = Astro.props
     grid-gap: 16px;
   }
   .mockups {
-    aspect-ratio: 3/2;
+    aspect-ratio: auto 3/2;
     width: 100%;
     border-radius: 16px;
+  }
+  .button-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
   }
     /* Media query para dispositivos móviles */
   @media (max-width: 767px) {

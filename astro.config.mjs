@@ -1,8 +1,23 @@
-import { defineConfig } from "astro/config";
+import { defineConfig } from "astro/config"
+import mdx from "@astrojs/mdx"
+import codeMdxTheme from "./OneDark-Pro-darker.json"
 
-import mdx from "@astrojs/mdx";
+// Change background color for the code Mdx theme
+const theme = {
+  ...codeMdxTheme,
+  colors: {
+    ...codeMdxTheme.colors,
+    "editor.background": "#2e2e2e"
+  }
+}
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [mdx()]
-});
+  integrations: [mdx()],  
+  // Change background color for the code Mdx theme
+  markdown: {
+    shikiConfig: {
+      theme
+    },
+  },
+})

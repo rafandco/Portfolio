@@ -81,6 +81,45 @@ p {
   letter-spacing: 0.05em;
   margin: 0px;
 }
+a {
+  color: var(--wheat-medium);
+  text-decoration: none;
+}
+a:hover {
+  color: var(--wheat-dark);
+  text-decoration: underline;
+}
+
+table {
+  border-radius: 16px;
+}
+
+table,
+th,
+td {
+  border: 1px solid var(--gray-light);
+  border-collapse: collapse;
+}
+th,
+td {
+  padding: 8px;
+}
+th {
+  background-color: var(--gray-medium);
+}
+
+code {
+  font-family: "Courier New", Courier, monospace;
+  background-color: var(--gray-medium);
+  padding: 0px 4px;
+  border-radius: 4px;
+}
+
+pre {
+  padding: 16px;
+  border-radius: 16px;
+}
+
 .text-big-info {
   font-size: 20px;
   font-weight: 500;
@@ -88,6 +127,10 @@ p {
 }
 .text-opacity-80 {
   color: rgba(255, 255, 255, 0.8);
+}
+
+strong {
+  font-weight: 600;
 }
 .text-bold {
   font-weight: 600;

@@ -8,33 +8,73 @@ href: "trainzone"
 gitHub: "https://github.com/rafandco/trainzone"
 web: "https://trainzone.es"
 # Mockups for starter bento gird
-bentoMockupSrc1: "/projects-images/trainzone/trainzone-hero-mockup.png"
-bentoMockupSrc2: "/projects-images/trainzone/trainzone-section-mockup.png"
-bentoMockupSrc3: "/projects-images/trainzone/trainzone-team-mockup.png"
+bentoMockupSrc1: "/projects-images/trainzone/trainzone-hero-mockup.avif"
+bentoMockupSrc2: "/projects-images/trainzone/trainzone-team-mockup.avif"
+bentoMockupSrc3: "/projects-images/trainzone/trainzone-section-mockup.avif"
 ---
 
 ## Descripción del Proyecto
 
-Breve descripción del proyecto TrainZone y su propósito.
+El proyecto busca dar respuesta a la necesidad del centro de entrenamiento TrainZone de tener un hueco en internet, donde se muestre los servicios que ofrecen, el equipo que conforma el centro y las distintas valoraciones y experiencias de los clientes.
 
-## Enlaces Relevantes
-
-- [Enlace a la Landing Page](URL de la Landing Page)
-- [Enlace a Figma (si está disponible)](URL de Figma)
-- [Enlace al Repositorio (si es público)](URL del Repositorio)
+Recordando el motivo principal de la web, era clave ofrecer un espacio de contacto y un widget que localice al centro en el mapa.
 
 ## Tecnologías Utilizadas
 
+Para la creación del proyecto se utilizaron las siguientes herramientas y tecnologías, cada una en la fase correspondiente.
+
 - Figma
+- Git y GitHub
+- Typescript
 - Astro Framework
 - Vercel
 - Ionos (Dominio)
 
 ## Diseño en Figma
 
-Explicación sobre el proceso de diseño en Figma y las decisiones de diseño tomadas.
+Se usó la herramienta de diseño Figma para hacer todo el diseño del interfaz de usuario correspondiente. Se buscaba un diseño limpio y claro que tuviera los colores corporativos y se viera de manera organizada por secciones la información relevante a mostrar.
+
+Para ello nos centramos en tener un Hero principal donde establecer los elementos de navegación principales, de forma que fueran los más llamativo junto con el título de la Web. Seguidamente, se diseñó una sección para cada uno de los requisitos de información del centro, siempre manteniendo el mismo lenguaje de diseño minimalista, donde respire el contenido y con apariencia redondeada.
+
+En las páginas de servicios y equipo, se usa la tendencia de diseño Bento, para mostrar la información de una forma visual. Y todo sin olvidar la adaptabilidad para distintos dispositivos.
+
+[Prototipo de alta fidelidad en Figma >](https://www.figma.com/file/zsKnK0DEcB6BxOKwOK05aN/TrainZone?type=design&node-id=0%3A1&mode=design&t=ajzu1caT4KjcIpAo-1)
 
 ## Implementación con Astro Framework
+
+Consideré que Astro era el framework que mejor se adaptaba a las necesidades del proyecto, ya que se trata de una página web completamente estática en la que simplemente se buscaba mostrar información. La idea es que fuera lo más eficiente posible de cara a tenerUna buena experiencia de usuario y un buen SEO.
+
+Otro de los motivos por los que se escogió este framework fue porque facilita mucho la experiencia de desarrollo.
+
+```bash
+/
+  ├── public/
+  │   ├── favicon.svg
+  │   └── ...
+  ├── src/
+  │   ├── components/
+  │   │   ├── icons/
+  │   │   ├── Hero.astro
+  │   │   └── ...
+  │   ├── layouts/
+  │   │   └── Layout.astro
+  │   └── pages/
+  │       ├── index.astro
+  │       ├── services.astro
+  │       └── team.astro
+  └── package.json
+```
+
+### Comandos
+
+All commands are run from the root of the project, from a terminal:
+
+| Command           | Action                                       |
+| :---------------- | :------------------------------------------- |
+| `npm install`     | Instalar dependencias                        |
+| `npm run dev`     | Comienza un servidor local `localhost:4321`  |
+| `npm run build`   | Construye tu build para producción `./dist/` |
+| `npm run preview` | Previsualiza tu build localmente             |
 
 Detalles sobre cómo se programó la landing page utilizando el framework Astro, incluyendo aspectos técnicos y decisiones de desarrollo.
 
@@ -45,10 +85,6 @@ Descripción de cómo se desplegó la landing page en Vercel y cualquier configu
 ## Dominio en Ionos
 
 Información sobre la configuración del dominio en Ionos y cómo se vinculó con el despliegue en Vercel.
-
-## Capturas de Pantalla
-
-Inclusión de capturas de pantalla del proyecto para proporcionar una vista visual del trabajo realizado.
 
 ## Aprendizajes y Desafíos
 

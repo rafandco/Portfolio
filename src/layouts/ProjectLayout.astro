@@ -49,23 +49,23 @@ const { frontmatter } = Astro.props
         />
       </div>}
       {(frontmatter.gitHub || frontmatter.web) && (
-      <div class="button-wrapper">
-        {frontmatter.gitHub && (
-          <ButtonTransparent href={frontmatter.gitHub}>
-            <Github />
+        <div class="button-wrapper">
+          {frontmatter.gitHub && (
+            <ButtonTransparent href={frontmatter.gitHub}>
+              <Github />
             Github
-          </ButtonTransparent>
-        )}
+            </ButtonTransparent>
+          )}
 
-        {frontmatter.web && (
-          <ButtonTransparent href={frontmatter.web}>
-            <Web />
+          {frontmatter.web && (
+            <ButtonTransparent href={frontmatter.web}>
+              <Web />
             Web
-          </ButtonTransparent>
-        )}
-      </div>
-    )
-  }
+            </ButtonTransparent>
+          )}
+        </div>
+      )
+      }
       
       <slot />
     </main>

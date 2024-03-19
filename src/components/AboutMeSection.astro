@@ -123,6 +123,7 @@ import Languague from "../components/icons/Languague.astro"
     align-items: stretch;
     grid-gap: 16px;
   }
+
   .card-wrapper-column {
     display: flex;
     flex-direction: column;
@@ -133,6 +134,7 @@ import Languague from "../components/icons/Languague.astro"
     margin: -8px 0px;
     padding: 0;
   }
+
   li {
     display: flex;
     flex-direction: row;
@@ -145,18 +147,22 @@ import Languague from "../components/icons/Languague.astro"
   li:not(:first-child) {
     border-top: 1px solid var(--gray-light);
   }
+
   .li-badge-wrapper {
     padding: 12px 0px;
   }
+
   .badge-wrapper {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     gap: 8px;
   }
+
   .icon-wrapper {
     color: var(--wheat-medium);
   }
+
   .card-wrapper-row-space-around {
     width: 100%;
     display: flex;
@@ -164,6 +170,7 @@ import Languague from "../components/icons/Languague.astro"
     justify-content: space-around;
     gap: 16px;
   }
+
   /* Media query para dispositivos móviles */
   @media (max-width: 767px) {
     .card-wrapper-2col {
@@ -171,6 +178,7 @@ import Languague from "../components/icons/Languague.astro"
       grid-template-columns: 1fr;
       gap: 16px;
     }
+
     .card-wrapper-bento {
       display: flex;
       flex-direction: column;

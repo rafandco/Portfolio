@@ -30,30 +30,30 @@ const { frontmatter } = Astro.props
         frontmatter.bentoMockupSrc1 &&
           frontmatter.bentoMockupSrc2 &&
           frontmatter.bentoMockupSrc3 && (
-            <div class="img-wrapper-bento">
-              <img
-                class="mockups"
-                src={frontmatter.bentoMockupSrc1}
-                alt="Mockup"
-                style="grid-column: 1 / 3;
+          <div class="img-wrapper-bento">
+            <img
+              class="mockups"
+              src={frontmatter.bentoMockupSrc1}
+              alt="Mockup"
+              style="grid-column: 1 / 3;
           grid-row: 1 / 3;"
-              />
-              <img
-                class="mockups"
-                src={frontmatter.bentoMockupSrc2}
-                alt="Mockup"
-                style="grid-column: 3 / 4;
+            />
+            <img
+              class="mockups"
+              src={frontmatter.bentoMockupSrc2}
+              alt="Mockup"
+              style="grid-column: 3 / 4;
           grid-row: 1 / 2;"
-              />{" "}
-              <img
-                class="mockups"
-                src={frontmatter.bentoMockupSrc3}
-                alt="Mockup"
-                style="grid-column: 3 / 4;
+            />{" "}
+            <img
+              class="mockups"
+              src={frontmatter.bentoMockupSrc3}
+              alt="Mockup"
+              style="grid-column: 3 / 4;
           grid-row: 2 / 3;"
-              />
-            </div>
-          )
+            />
+          </div>
+        )
       }
       {
         (frontmatter.gitHub || frontmatter.web) && (

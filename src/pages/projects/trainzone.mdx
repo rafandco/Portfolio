@@ -13,11 +13,15 @@ bentoMockupSrc2: "/projects-images/trainzone/trainzone-team-mockup.avif"
 bentoMockupSrc3: "/projects-images/trainzone/trainzone-section-mockup.avif"
 ---
 
-## Descripción del Proyecto
+---
+
+## Introducción del Proyecto
 
 El proyecto busca dar respuesta a la necesidad del centro de entrenamiento TrainZone de tener un hueco en internet, donde se muestre los servicios que ofrecen, el equipo que conforma el centro y las distintas valoraciones y experiencias de los clientes.
 
 Recordando el motivo principal de la web, era clave ofrecer un espacio de contacto y un widget que localice al centro en el mapa.
+
+---
 
 ## Tecnologías Utilizadas
 
@@ -30,6 +34,8 @@ Para la creación del proyecto se utilizaron las siguientes herramientas y tecno
 - Vercel
 - Ionos (Dominio)
 
+---
+
 ## Diseño en Figma
 
 Se usó la herramienta de diseño Figma para hacer todo el diseño del interfaz de usuario correspondiente. Se buscaba un diseño limpio y claro que tuviera los colores corporativos y se viera de manera organizada por secciones la información relevante a mostrar.
@@ -40,11 +46,15 @@ En las páginas de servicios y equipo, se usa la tendencia de diseño Bento, par
 
 [Prototipo de alta fidelidad en Figma >](https://www.figma.com/file/zsKnK0DEcB6BxOKwOK05aN/TrainZone?type=design&node-id=0%3A1&mode=design&t=ajzu1caT4KjcIpAo-1)
 
+---
+
 ## Implementación con Astro Framework
 
-Consideré que Astro era el framework que mejor se adaptaba a las necesidades del proyecto, ya que se trata de una página web completamente estática en la que simplemente se buscaba mostrar información. La idea es que fuera lo más eficiente posible de cara a tenerUna buena experiencia de usuario y un buen SEO.
+Consideré que Astro era el framework que mejor se adaptaba a las necesidades del proyecto, ya que [TrainZone](https://trainzone.es), se trata de una página web completamente estática en la que simplemente se buscaba mostrar información. La idea es que fuera lo más eficiente posible de cara a tenerUna buena experiencia de usuario y un buen SEO.
 
-Otro de los motivos por los que se escogió este framework fue porque facilita mucho la experiencia de desarrollo.
+Astro facilita mucho la experiencia de desarrollo. Su herramienta de auditoría es muy útil para ir solucionando problemas de accesibilidad y rendimiento. Y su forma de gestionar los estilos es muy sencilla ya que establecen en cada componente. Esto permite usar CSS puro sin ocupar archivos enormes durante el desarrollo.
+
+El proyecto se estructuró de forma sencilla, componetizando cada una de las secciones y elementos recurrentes de la UI. Una de las decisiones tomadas fue introducir los código SVG de los distintos iconos en componentes, guardados en la carpeta `/icons`, de forma que fuera sencilla su reutilización.
 
 ```bash
 /
@@ -67,7 +77,7 @@ Otro de los motivos por los que se escogió este framework fue porque facilita m
 
 ### Comandos
 
-All commands are run from the root of the project, from a terminal:
+Estos son los comandos para inicializar el proyecto:
 
 | Command           | Action                                       |
 | :---------------- | :------------------------------------------- |
@@ -78,18 +88,37 @@ All commands are run from the root of the project, from a terminal:
 
 Detalles sobre cómo se programó la landing page utilizando el framework Astro, incluyendo aspectos técnicos y decisiones de desarrollo.
 
+---
+
 ## Despliegue en Vercel
 
-Descripción de cómo se desplegó la landing page en Vercel y cualquier configuración específica realizada para el entorno de producción.
+Se escogió Vercel como herramienta para llevar a cabo el despliegue de la web. Esta herramienta ofrece una integración completa con Astro y es muy sencillo a la par que económico su uso.
+
+Al estar el código de la web en un repositorio de GitHub y al haber configurado en Vercel el enlace con el mismo y el dominio, el despliegues a producción se hace de forma automática.
+
+---
 
 ## Dominio en Ionos
 
-Información sobre la configuración del dominio en Ionos y cómo se vinculó con el despliegue en Vercel.
+Nuestro cliente contaba con el dominio `trainzone.es` en propiedad, a través del proveedor Ionos.
+La configuración en el panel de Ionos fue rápida y sencilla.
 
-## Aprendizajes y Desafíos
-
-Reflexiones sobre lo aprendido durante el desarrollo del proyecto y cualquier desafío superado.
+---
 
 ## Futuras Mejoras
 
-Ideas o planes para futuras mejoras o características que podrían agregarse al proyecto Trainzone.
+Si bien es un proyecto simple, que no da pie a muchas modificaciones, si hay algunos aspectos que podrían ser mejorados a futuro, siempre con el visto bueno del cliente.
+
+- Sustitución de las imágenes de la página de servicios.
+- Corrección de los colores verdosos para un mejor contraste con el texto.
+- Llevar a cabo un estudio de experiencia de usuario.
+- Usar logotipos con formatos vectoriales si se tuvieran.
+- Implementar Tailwind para simplificar los estilos.
+
+---
+
+## Aprendizajes y Desafíos
+
+Principalmente el aprendizaje es el poder haber trabajado con un cliente real y plasmar su idea de tal forma que sea fiel a las necesidades del negocio.
+
+---

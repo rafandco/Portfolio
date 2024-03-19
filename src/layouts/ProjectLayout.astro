@@ -26,47 +26,55 @@ const { frontmatter } = Astro.props
     </header>
     <main>
       <!-- TODO: Componetizar imagenes de img-wrapper-bento -->
-      {(frontmatter.bentoMockupSrc1 && frontmatter.bentoMockupSrc2 && frontmatter.bentoMockupSrc3) && <div class="img-wrapper-bento">
-        <img
-          class="mockups"
-          src={frontmatter.bentoMockupSrc1}
-          alt="Mockup"
-          style="grid-column: 1 / 3;
+      {
+        frontmatter.bentoMockupSrc1 &&
+          frontmatter.bentoMockupSrc2 &&
+          frontmatter.bentoMockupSrc3 && (
+            <div class="img-wrapper-bento">
+              <img
+                class="mockups"
+                src={frontmatter.bentoMockupSrc1}
+                alt="Mockup"
+                style="grid-column: 1 / 3;
           grid-row: 1 / 3;"
-        />
-        <img
-          class="mockups"
-          src={frontmatter.bentoMockupSrc2}
-          alt="Mockup"
-          style="grid-column: 3 / 4;
+              />
+              <img
+                class="mockups"
+                src={frontmatter.bentoMockupSrc2}
+                alt="Mockup"
+                style="grid-column: 3 / 4;
           grid-row: 1 / 2;"
-        /> <img
-          class="mockups"
-          src={frontmatter.bentoMockupSrc3}
-          alt="Mockup"
-          style="grid-column: 3 / 4;
+              />{" "}
+              <img
+                class="mockups"
+                src={frontmatter.bentoMockupSrc3}
+                alt="Mockup"
+                style="grid-column: 3 / 4;
           grid-row: 2 / 3;"
-        />
-      </div>}
-      {(frontmatter.gitHub || frontmatter.web) && (
-        <div class="button-wrapper">
-          {frontmatter.gitHub && (
-            <ButtonTransparent href={frontmatter.gitHub}>
-              <Github />
-            Github
-            </ButtonTransparent>
-          )}
-
-          {frontmatter.web && (
-            <ButtonTransparent href={frontmatter.web}>
-              <Web />
-            Web
-            </ButtonTransparent>
-          )}
-        </div>
-      )
+              />
+            </div>
+          )
       }
-      
+      {
+        (frontmatter.gitHub || frontmatter.web) && (
+          <div class="button-wrapper">
+            {frontmatter.gitHub && (
+              <ButtonTransparent href={frontmatter.gitHub}>
+                <Github />
+                Github
+              </ButtonTransparent>
+            )}
+
+            {frontmatter.web && (
+              <ButtonTransparent href={frontmatter.web}>
+                <Web />
+                Web
+              </ButtonTransparent>
+            )}
+          </div>
+        )
+      }
+
       <slot />
     </main>
     <Footer />
@@ -97,6 +105,7 @@ const { frontmatter } = Astro.props
     padding: var(--card-padding);
     margin-bottom: 16px;
   }
+
   .img-wrapper-bento {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -105,31 +114,38 @@ const { frontmatter } = Astro.props
     align-items: stretch;
     grid-gap: 16px;
   }
+
   .mockups {
     aspect-ratio: auto 3/2;
     width: 100%;
     border-radius: 16px;
   }
+
   .button-wrapper {
     display: flex;
     flex-direction: row;
     gap: 16px;
   }
-    /* Media query para dispositivos móviles */
+
+  /* Media query para dispositivos móviles */
   @media (max-width: 767px) {
-    header, main {
+    header,
+    main {
       width: 360px;
     }
+
     .img-wrapper-bento {
       display: flex;
       flex-direction: column;
       grid-gap: 16px;
-  }
+    }
   }
 
   /* Media query para tablets */
   @media (min-width: 768px) and (max-width: 1023px) {
-    header, main {
+    header,
+    main {
       width: 768px;
     }
+  }
 </style>

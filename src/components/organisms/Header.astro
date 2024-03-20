@@ -19,13 +19,22 @@ import AboutMe from "../icons/AboutMe.astro"
 </header>
 <style>
   header {
+    width: 100%;
+    position: fixed;
+    left: 50%;
+    top: 0px;
+    bottom: auto;
+    transform: translateX(-50%);
+    margin: 16px 0px;
     grid-area: header;
     margin-top: 16px;
   }
+
   nav {
     width: fit-content;
     margin: 0px auto 0px auto;
   }
+
   ul {
     display: flex;
     justify-content: space-between;
@@ -35,35 +44,54 @@ import AboutMe from "../icons/AboutMe.astro"
     padding: 0;
     border-radius: 32px;
     background-color: var(--gray-medium);
+    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
   }
+
   li {
     list-style-type: none;
     margin: 8px;
     padding: 8px 0;
   }
+
   div {
     display: none;
   }
+
   a {
     text-decoration: none;
     color: #ffffff;
     padding: 8px 16px;
     border-radius: 24px;
   }
+
   a:hover {
     background-color: var(--gray-light);
   }
+
   @media (max-width: 767px) {
+    header {
+      width: 100%;
+      position: fixed;
+      left: 50%;
+      top: auto;
+      bottom: 0px;
+      transform: translateX(-50%);
+      margin-bottom: 16px;
+    }
+
     ul {
       padding: 0px 8px;
       border-radius: 24px;
     }
+
     li {
       margin: 0px;
     }
+
     div {
       display: block;
     }
+
     a {
       display: flex;
       flex-direction: column;

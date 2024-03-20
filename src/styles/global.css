@@ -35,7 +35,7 @@ html {
 body {
   min-height: 100vh;
   display: grid;
-  grid: "header" auto "main" 1fr "footer" auto / 1fr;
+  grid: "header" 86px "main" 1fr "footer" auto / 1fr;
   gap: 16px;
   margin: 0;
 
@@ -158,4 +158,11 @@ strong {
 
 .text-center {
   text-align: center;
+}
+
+/* Media query para dispositivos móviles */
+@media (max-width: 767px) {
+  body {
+    grid: "header" auto "main" 1fr "footer" 224px / 1fr;
+  }
 }

@@ -35,7 +35,7 @@ html {
 body {
   min-height: 100vh;
   display: grid;
-  grid: "header" 86px "main" 1fr "footer" auto / 1fr;
+  grid: "header" auto "main" 1fr "footer" auto / 1fr;
   gap: 16px;
   margin: 0;
 
@@ -46,7 +46,6 @@ main {
   grid-area: main;
   display: flex;
   flex-direction: column;
-  gap: 16px;
   align-items: center;
 }
 

@@ -18,13 +18,15 @@ const { id } = Astro.props
     flex-direction: column;
     align-items: center;
     gap: 16px;
-    padding: 64px 16px;
+    padding: var(--card-padding);
+    padding-top: 176px;
   }
 
   /* Media query para dispositivos móviles */
   @media (max-width: 767px) {
     section {
       width: 360px;
+      padding: 64px var(--card-padding);
     }
   }
 

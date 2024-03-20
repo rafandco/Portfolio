@@ -125,7 +125,9 @@ import Languague from "../components/icons/Languague.astro"
   }
 
   .card-wrapper-column {
+    height: 100%;
     display: flex;
+    justify-content: space-evenly;
     flex-direction: column;
     gap: 16px;
   }
@@ -173,6 +175,13 @@ import Languague from "../components/icons/Languague.astro"
 
   /* Media query para dispositivos móviles */
   @media (max-width: 767px) {
+    .card-wrapper-column {
+      height: max-content;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
     .card-wrapper-2col {
       display: grid;
       grid-template-columns: 1fr;

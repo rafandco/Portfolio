@@ -84,6 +84,7 @@ const { frontmatter } = Astro.props
   body {
     gap: 0px;
   }
+
   header {
     width: 960px;
     grid-area: header;
@@ -101,9 +102,10 @@ const { frontmatter } = Astro.props
     width: 960px;
     margin: 0px auto 0px auto;
     display: flex;
+    gap: 32px;
     align-items: stretch;
     padding: var(--card-padding);
-    margin-bottom: 16px;
+    margin: 16px auto;
   }
 
   .img-wrapper-bento {

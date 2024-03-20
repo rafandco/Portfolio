@@ -135,6 +135,8 @@ hr {
   height: 2px;
   background-color: var(--gray-light);
   border-style: none;
+  padding: 0px;
+  margin: 0px;
 }
 
 .text-big-info {

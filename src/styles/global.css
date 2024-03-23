@@ -168,5 +168,8 @@ strong {
 @media (max-width: 767px) {
   body {
     grid: "header" auto "main" 1fr "footer" 224px / 1fr;
+    background-image: url(green-gradient-vertical.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
   }
 }

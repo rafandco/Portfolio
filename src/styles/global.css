@@ -8,6 +8,7 @@
   --green-dark: #243838;
   --green-medium: #2f4f4f;
   --green-light: #456d6d;
+  --green-ultra-light: #c7ffdb;
   --wheat-dark: #ebd5ad;
   --wheat-medium: #f9ebd2;
   --wheat-light: #fefbf6;
@@ -38,7 +39,9 @@ body {
   grid: "header" auto "main" 1fr "footer" auto / 1fr;
   gap: 16px;
   margin: 0;
-
+  background-image: url(green-gradient.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
   color: #ffffff;
 }
 

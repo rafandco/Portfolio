@@ -1,0 +1,35 @@
+---
+interface Props {
+  imgSrc: string
+}
+
+const { imgSrc } = Astro.props
+---
+
+<div>
+  <img src={imgSrc} />
+</div>
+
+<style>
+  div {
+    display: flex;
+    justify-content: center;
+  }
+  img {
+    aspect-ratio: auto 3/2;
+    width: 70%;
+  }
+
+  /* Media query para tablets */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    img {
+      width: 80%;
+    }
+  }
+  /* Media query para dispositivos móviles */
+  @media (max-width: 767px) {
+    img {
+      width: 100%;
+    }
+  }
+</style>

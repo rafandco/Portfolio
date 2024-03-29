@@ -10,6 +10,7 @@ interface Frontmatter {
   href: string
   gitHub?: string
   web?: string
+  pdf?: string
 }
 
 const projects = await Astro.glob<Frontmatter>("../pages/projects/*.mdx")
@@ -28,6 +29,7 @@ console.log(projects)
           href={"/projects/" + projects.frontmatter.href}
           gitHub={projects.frontmatter.gitHub}
           web={projects.frontmatter.web}
+          pdf={projects.frontmatter.pdf}
         >
           {projects.frontmatter.description}
         </ProjectCard>

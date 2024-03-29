@@ -5,6 +5,7 @@ import BackButton from "../components/atoms/BackButton.astro"
 import ButtonTransparent from "../components/atoms/ButtonTransparent.astro"
 import Github from "../components/icons/Github.astro"
 import Web from "../components/icons/Web.astro"
+import Document from "../components/icons/Document.astro"
 
 const { frontmatter } = Astro.props
 ---
@@ -56,7 +57,7 @@ const { frontmatter } = Astro.props
         )
       }
       {
-        (frontmatter.gitHub || frontmatter.web) && (
+        (frontmatter.gitHub || frontmatter.web || frontmatter.pdf) && (
           <div class="button-wrapper">
             {frontmatter.gitHub && (
               <ButtonTransparent href={frontmatter.gitHub}>
@@ -69,6 +70,13 @@ const { frontmatter } = Astro.props
               <ButtonTransparent href={frontmatter.web}>
                 <Web />
                 Web
+              </ButtonTransparent>
+            )}
+
+            {frontmatter.pdf && (
+              <ButtonTransparent href={frontmatter.pdf}>
+                <Document />
+                PDF
               </ButtonTransparent>
             )}
           </div>

@@ -28,3 +28,23 @@ const { title } = Astro.props
     <Footer />
   </body>
 </html>
+<style>
+  body {
+    background-image: url(green-gradient.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  main {
+    padding-bottom: 86px;
+  }
+
+  /* Media query para dispositivos móviles */
+  @media (max-width: 767px) {
+    body {
+      grid: "header" auto "main" 1fr "footer" 224px / 1fr;
+      background-image: url(green-gradient-vertical.svg);
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+  }
+</style>

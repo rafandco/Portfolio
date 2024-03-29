@@ -39,9 +39,6 @@ body {
   grid: "header" auto "main" 1fr "footer" auto / 1fr;
   gap: 16px;
   margin: 0;
-  background-image: url(green-gradient.svg);
-  background-size: contain;
-  background-repeat: no-repeat;
   color: #ffffff;
 }
 
@@ -164,12 +161,39 @@ strong {
   text-align: center;
 }
 
-/* Media query para dispositivos móviles */
-@media (max-width: 767px) {
-  body {
-    grid: "header" auto "main" 1fr "footer" 224px / 1fr;
-    background-image: url(green-gradient-vertical.svg);
-    background-size: contain;
-    background-repeat: no-repeat;
+/* Media query para tablets y móviles */
+@media (max-width: 1023px) {
+  h1 {
+    font-size: 32px;
+    line-height: 1.25em;
+    letter-spacing: 0.05em;
+    margin: 0px;
+  }
+
+  h2 {
+    font-size: 28px;
+    line-height: 1.25em;
+    letter-spacing: 0.05em;
+    margin: 0px;
+  }
+
+  h3 {
+    font-size: 24px;
+    line-height: 1.25em;
+    letter-spacing: 0.05em;
+    margin: 0px;
+  }
+
+  h4 {
+    font-size: 20px;
+    line-height: 1.25em;
+    letter-spacing: 0.05em;
+    margin: 0px;
+  }
+
+  .text-big-info {
+    font-size: 18px;
+    font-weight: 500;
+    padding: var(--card-padding);
   }
 }

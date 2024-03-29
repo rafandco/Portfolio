@@ -96,23 +96,28 @@ const { frontmatter } = Astro.props
   header {
     width: 960px;
     grid-area: header;
+    position: fixed;
+    left: 50%;
+    top: 0px;
+    bottom: auto;
+    transform: translateX(-50%);
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 8px;
     margin: 0px auto 0px auto;
     padding: var(--card-padding);
+    background-color: var(--gray-dark);
     border-bottom: 2px solid var(--gray-light);
   }
 
   main {
     grid-area: main;
     width: 960px;
-    margin: 0px auto 0px auto;
     display: flex;
     gap: 32px;
     align-items: stretch;
-    padding: var(--card-padding);
+    padding: 86px var(--card-padding) 0px var(--card-padding);
     margin: 16px auto;
   }
 

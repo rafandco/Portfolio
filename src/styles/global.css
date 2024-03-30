@@ -17,15 +17,16 @@
   --gray-ultra-dark-transparent: rgba(5, 5, 5, 0.8);
   --gray-dark: #171717;
   --gray-dark-transparent: rgba(23, 23, 23, 0.8);
-  --gray-medium: #202020;
-  --gray-medium-transparent: rgba(32, 32, 32, 0.8);
+  --gray-medium: #232323;
+  --gray-medium-transparent: rgba(35, 35, 35, 0.8);
   --gray-light: #2e2e2e;
   --gray-light-transparent: rgba(46, 46, 46, 0.8);
   --gray-ultra-light: #3d3d3d;
   --gray-ultra-light-transparent: rgba(61, 61, 61, 0.8);
   --card-padding: 16px;
+  --card-border: 1px solid var(--gray-light);
   --blur: blur(15px);
-  --box-shadow: box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
+  --box-shadow: 2px 4px 24px rgba(0, 0, 0, 0.25);
 }
 
 html {

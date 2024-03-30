@@ -12,10 +12,19 @@
   --wheat-dark: #ebd5ad;
   --wheat-medium: #f9ebd2;
   --wheat-light: #fefbf6;
-  --gray-dark: #202020;
-  --gray-medium: #2e2e2e;
-  --gray-light: #3d3d3d;
+  --gray-ultra-dark: #050505;
+  --gray-ultra-dark-transparent: rgba(5, 5, 5, 0.8);
+  --gray-dark: #171717;
+  --gray-dark-transparent: rgba(23, 23, 23, 0.8);
+  --gray-medium: #202020;
+  --gray-medium-transparent: rgba(32, 32, 32, 0.8);
+  --gray-light: #2e2e2e;
+  --gray-light-transparent: rgba(46, 46, 46, 0.8);
+  --gray-ultra-light: #3d3d3d;
+  --gray-ultra-light-transparent: rgba(61, 61, 61, 0.8);
   --card-padding: 16px;
+  --blur: blur(15px);
+  --box-shadow: box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
 }
 
 html {
@@ -40,6 +49,7 @@ body {
   gap: 16px;
   margin: 0;
   color: #ffffff;
+  -webkit-text-size-adjust: 100%;
 }
 
 main {
@@ -120,7 +130,7 @@ th {
 
 code {
   font-family: "Courier New", Courier, monospace;
-  background-color: var(--gray-medium);
+  background-color: var(--gray-light);
   padding: 0px 4px;
   border-radius: 4px;
 }

@@ -62,7 +62,7 @@ const { title, imgSrc, type, href, gitHub, web, pdf } = Astro.props
     padding: var(--card-padding);
     background-color: var(--gray-medium);
     border-radius: 32px;
-    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
+    box-shadow: var(--box-shadow);
   }
   article:hover {
     background-color: var(--gray-light);
@@ -79,7 +79,7 @@ const { title, imgSrc, type, href, gitHub, web, pdf } = Astro.props
     width: 100%;
     margin-bottom: 8px;
     border-radius: 16px;
-    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
+    box-shadow: var(--box-shadow);
   }
   footer {
     flex-grow: 1;

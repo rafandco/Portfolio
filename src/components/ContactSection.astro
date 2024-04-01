@@ -1,0 +1,84 @@
+---
+import Section from "./organisms/Section.astro"
+---
+
+<Section title="Contactar" id="contact">
+  <p class="text-big-info text-center">
+    ¿Quieres hablar? Déjame un mensaje por el medio que prefieras.
+  </p>
+  <div>
+    <a href="">
+      <p class="h3">Instagram</p>
+      <p>rafandco</p>
+    </a>
+    <a href="
+        ">
+      <p class="h3">Github</p>
+      <p>rafandco</p>
+    </a>
+    <a href="">
+      <p class="h3">LinkedIn</p>
+      <p>Rafael Díaz García</p>
+    </a>
+    <a class="email" href="">
+      <p class="h3">Email</p>
+      <p>prueba@rafanco.es</p>
+    </a>
+  </div>
+</Section>
+<style>
+  div {
+    display: grid;
+    flex-wrap: wrap;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 16px;
+  }
+  a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 32px;
+    background-color: var(--gray-medium);
+    border: var(--card-border);
+    border-radius: 16px;
+    box-shadow: var(--box-shadow);
+  }
+
+  a:hover {
+    background-color: var(--gray-light);
+    text-decoration: none;
+  }
+
+  .email {
+    background-color: var(--wheat-medium);
+    color: var(--gray-medium);
+  }
+  .email:hover {
+    background-color: var(--wheat-dark);
+  }
+
+    @media (max-width: 1023px) {
+    div {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    div {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    div {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+  }
+</style>

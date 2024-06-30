@@ -1,4 +1,9 @@
 ---
+import BlogPostCard from "../components/molecules/BlogPostCard.astro"
+import Hero from "../components/organisms/Hero.astro"
+import Section from "../components/organisms/Section.astro"
+import Layout from "../layouts/Layout.astro"
+
 interface Frontmatter {
   title: string
   imgSrc: string
@@ -6,17 +11,14 @@ interface Frontmatter {
   href: string
 }
 
-import BlogPostCard from "../components/molecules/BlogPostCard.astro"
-import Hero from "../components/organisms/Hero.astro"
-import Section from "../components/organisms/Section.astro"
-import Layout from "../layouts/Layout.astro"
-
 const post = await Astro.glob<Frontmatter>("../pages/blog/*.mdx")
 ---
 
 <Layout title="Blog">
   <Hero id="blog-hero">
-    <h1>Blog</h1>
+    <h1>
+      Blog <span>Guías, artículos y reflexiones, sobre todo un poco</span>
+    </h1>
   </Hero>
   <Section id="#posts">
     {
@@ -24,7 +26,7 @@ const post = await Astro.glob<Frontmatter>("../pages/blog/*.mdx")
         <BlogPostCard
           title={post.frontmatter.title}
           imgSrc={post.frontmatter.imgSrc}
-          href={"/blog/" + post.frontmatter.href}
+          href={"/blog" + post.frontmatter.href}
         >
           {post.frontmatter.description}
         </BlogPostCard>
@@ -32,3 +34,24 @@ const post = await Astro.glob<Frontmatter>("../pages/blog/*.mdx")
     }
   </Section>
 </Layout>
+<style>
+  h1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  span {
+    font-size: 20px;
+    font-weight: 500;
+    text-align: center;
+    line-height: 1.25em;
+  }
+
+  @media (max-width: 767px) {
+    span {
+      font-size: 18px;
+    }
+  }
+</style>

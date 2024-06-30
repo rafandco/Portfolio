@@ -10,7 +10,7 @@ const { title, imgSrc, href } = Astro.props
 
 <article>
   <a href={href}>
-    <img src={imgSrc} alt={"Captura de la web" + title} />
+    {imgSrc != "" && <img src={imgSrc} alt={"Captura de la web" + title} />}
     <div>
       <h3>{title}</h3>
       <p class="text-opacity-80">

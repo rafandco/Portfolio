@@ -1,0 +1,64 @@
+---
+interface Props {
+  title: string
+  imgSrc: string
+  description?: string
+  href: string
+}
+const { title, imgSrc, href } = Astro.props
+---
+
+<article>
+  <a href={href}>
+    <img src={imgSrc} alt={"Captura de la web" + title} />
+    <div>
+      <h3>{title}</h3>
+      <p class="text-opacity-80">
+        <slot />
+      </p>
+    </div>
+  </a>
+</article>
+
+<style>
+  a {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    padding: var(--card-padding);
+    background-color: var(--gray-medium);
+    border-radius: 32px;
+    border: var(--card-border);
+    box-shadow: var(--box-shadow);
+    text-decoration: none;
+    color: white;
+  }
+
+  a:hover {
+    text-decoration: none;
+    color: white;
+    background-color: var(--gray-light);
+  }
+
+  img {
+    aspect-ratio: auto 3/2;
+    width: 20%;
+    border-radius: 16px;
+    box-shadow: var(--box-shadow);
+  }
+
+  div {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  @media (max-width: 767px) {
+    a {
+      flex-direction: column;
+    }
+    img {
+      width: 100%;
+    }
+  }
+</style>

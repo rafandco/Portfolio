@@ -3,8 +3,9 @@
 Portfolio personal, desarrollado con astro.
 
 - Inicio
-- Experiencia
 - Proyectos
+- Blog
+- Experiencia
 - Sobre mí
 
 ## Autor

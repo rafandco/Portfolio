@@ -1,0 +1,332 @@
+---
+layout: "../../layouts/BlogLayout.astro"
+title: "iPad Sidecar con PC, programa en tu iPad"
+imgSrc: "/ipad-rdp-3-2.avif"
+description: "Tras seguir esta guía podrás tener todas las ventajas de tener un equipo portátil como es el iPad y acceder a todos los programas y capacidades que te brinda tu PC."
+href: "/ipad-rdp"
+medium:
+---
+
+import ConfiguracionImg from "../../assets/images/blog/ipad-rdp/buscar-configuracion.avif";
+import EscritorioRemotoImg from "../../assets/images/blog/ipad-rdp/buscar-escritorio-remoto.avif";
+import OpcionesEscritorioImg from "../../assets/images/blog/ipad-rdp/opciones-escritorio-remoto.avif";
+import NavbarRdpAppImg from "../../assets/images/blog/ipad-rdp/navbar-rdp-app-ipad.avif";
+import AgregarPcRdpImg from "../../assets/images/blog/ipad-rdp/agregar-pc-rdp-app-ipad.avif";
+import CrearRedZeroTierImg from "../../assets/images/blog/ipad-rdp/crear-red-zerotier.avif";
+import TablaRedesZeroTierImg from "../../assets/images/blog/ipad-rdp/tabla-de-redes-zerotier.avif";
+import AjustesRedZeroTierImg from "../../assets/images/blog/ipad-rdp/ajustes-de-red-zerotier.avif";
+import AjustesAvanzadosRedZeroTierImg from "../../assets/images/blog/ipad-rdp/ajustes-avanzados-de-red-zerotier.avif";
+import DescargarZeroTierWindowsImg from "../../assets/images/blog/ipad-rdp/descargar-zerotier-windows.avif";
+import AbrirInstaladorZeroTierImg from "../../assets/images/blog/ipad-rdp/abrir-instalador-zerotier-windows.avif";
+import InstalarZeroTierWindowsImg from "../../assets/images/blog/ipad-rdp/instalar-zerotier-windows.avif";
+import BuscarZeroTierImg from "../../assets/images/blog/ipad-rdp/buscar-zerotier.avif";
+import UnirseNuevaRedZeroTierWindowsImg from "../../assets/images/blog/ipad-rdp/unirse-a-nueva-red-zerotier-windows.avif";
+import IdRedZeroTierWindowsImg from "../../assets/images/blog/ipad-rdp/id-de-red-zerotier-windows.avif";
+import VerRedesZeroTierWindowsImg from "../../assets/images/blog/ipad-rdp/ver-redes-zerotier-windows.avif";
+import PcNoAutorizadoZeroTierImg from "../../assets/images/blog/ipad-rdp/pc-no-autorizado-zerotier.avif";
+import PcAutorizadoZeroTierImg from "../../assets/images/blog/ipad-rdp/pc-autorizado-zerotier.avif";
+import UnirseNuevaRedZeroTierIpadImg from "../../assets/images/blog/ipad-rdp/unirse-a-nueva-red-zerotier-ipad.avif";
+import IdRedZeroTierIpadImg from "../../assets/images/blog/ipad-rdp/id-de-red-zerotier-ipad.avif";
+import VerRedesZeroTierIpadImg from "../../assets/images/blog/ipad-rdp/ver-redes-zerotier-ipad.avif";
+import IpadNoAutorizadoZeroTierImg from "../../assets/images/blog/ipad-rdp/ipad-no-autorizado-zerotier.avif";
+import IpadAutorizadoZeroTierImg from "../../assets/images/blog/ipad-rdp/ipad-autorizado-zerotier.avif";
+
+---
+
+## ¿Qué es Sidecar?
+
+Sidecar es una función, desarrollada por Apple y que fue introducida en MacOS Catalina y iPadOS 13 que ofrece funciones como:
+
+- Duplicar la pantalla del Mac en el iPad.
+- Extender la pantalla, proporcionando más espacio de trabajo.
+
+---
+
+## Problema
+
+Sin embargo, como suele ser común en Apple es necesario tener ambos dispositivos Mac y iPad. Además, Sidecar funciona si ambos dispositivos están conectados en la misma red local, cosa que no iría en consonancia con unos de los objetivos, poder programar desde el iPad accediendo remotamente a todas las configuración y entornos de desarrollos instalados en mi ordenador habitual.
+
+Otras opciones interesantes para poder programar desde el iPad, es usar GitHub Codespaces o crear un servidor de VSCode a través de una Raspberry PI. Pero en ambos casos no se tiene acceso completo a todos los IDEs instalados, archivos y configuraciones.
+
+Anydesk, es una herramienta de origen europeo fiable y que si se alineaba con el objetivo pero que necesitaba de tener la pantalla del PC host encendido y tras varios días de uso la diferencia entre relación de aspecto entre 16:9 y el iPad hacía que programar con dos barras negras fuera incomodo.
+
+---
+
+## Solución
+
+Nos decantamos por tanto por usar el protocolo de escritorio remoto (RDP). Pero abrir el puerto correspondiente no era una opción por los riesgos de seguridad que acarrea.
+En este contexto entra en juego ZeroTier, como herramienta para crear redes virtuales seguras y sencillamente configurable.
+
+Los dispositivos conectados a la red ZeroTier se comunican de forma directa entre sí (punto a punto) y el tráfico se encripta, lo que proporciona una conexión VPN segura sin necesidad de un servidor VPN tradicional.
+Además, ZeroTier permite configurar opciones avanzadas como asignación de direcciones IP, enrutamiento y reglas de firewall a través de su interfaz web, lo que brinda un mayor control sobre la red VPN.
+
+---
+
+### Requisitos
+
+Los requisitos mínimos son:
+
+- Ordenador que soporte ser host de RDP.
+- iPad o Tablet Android.
+- Conexión a internet.
+
+---
+
+### Paso 1. Activar RDP
+
+En primer lugar deberemos activar la opción, de escritorio remoto en nuestro ordenador principal. Mostraremos los pasos para un ordenador con Windows 10.
+Accedemos a configuración.
+
+<img
+  src={ConfiguracionImg.src}
+  alt="Acceso a la configuración en Windows 10"
+  width="100%"
+  style="border-radius: 16px"
+/>
+Buscamos escritorio remoto o accedemos a sistema > escritorio remoto.
+<img
+  src={EscritorioRemotoImg.src}
+  alt="Búsqueda de la opción de escritorio remoto en Windows 10"
+  width="100%"
+  style="border-radius: 16px"
+/>
+Deberemos activar la funcionalidad. La configuración de escritorio remoto debe verse
+de manera similar a esta.
+<img
+  src={OpcionesEscritorioImg.src}
+  alt="Opciones de configuración de escritorio remoto en Windows 10"
+  width="100%"
+  style="border-radius: 16px"
+/>
+En el apartado “Como conectarse a este equipo”, nos aparecerá el nombre del equipo
+que posteriormente usaremos.
+
+---
+
+### Paso 2. Descargar la app de RDP en nuestro iPad o Tablet
+
+Existen un gran número de aplicaciones que soportan RDP tanto en el App Store como en el Play Store. En este caso estaremos utilizando la app oficial de Microsoft.
+
+[Remote Desktop Mobile for iPad](https://apps.apple.com/us/app/remote-desktop-mobile/id714464092?platform=ipad)
+
+[Remote Desktop for Android](https://play.google.com/store/apps/details?id=com.microsoft.rdc.androidx&hl=es)
+
+A continuación entraremos en la app y añadiremos una nueva conexión haciendo clic en el “+” situado en el centro y abajo de nuestra pantalla.
+
+<img
+  src={NavbarRdpAppImg.src}
+  alt="Añadir nueva conexión en la app RDP para iPad"
+  width="100%"
+  style="border-radius: 16px"
+/>
+Le daremos a “agregar PC” y en ”Nombre de PC” escribiremos el nombre de nuestro equipo
+seguido de :3389 que es el puerto de RDP.
+<img
+  src={AgregarPcRdpImg.src}
+  alt="Agregar PC en la app RDP para iPad"
+  width="100%"
+  style="border-radius: 16px"
+/>
+Finalmente le damos a “Guardar”. En este punto podríamos acceder al escritorio remoto
+de nuestro PC pero solo si ambos dispositivos se encuentran conectados a la misma
+red local.
+
+---
+
+### Paso 3. Acceder a ZeroTier
+
+Para poder acceder a nuestro equipo host remotamente sin necesidad de abrir los puertos de RDP, tenemos que hacer que tanto el host (PC) como el huésped (iPad) estén en la misma red.
+Para ello haremos uso de ZeroTier.
+
+Nos dirigiremos a la página principal y nos crearemos una cuenta en [https://www.zerotier.com](https://www.zerotier.com/)
+
+Podemos crearnos una cuenta con correo electrónico, o podemos iniciar sesión directamente con gmail, github o microsoft.
+
+---
+
+### Paso 4. Crear y configurar la red
+
+Una vez que estemos dentro deberemos crear una nueva red haciendo click en “Create new network”.
+
+<img
+  src={CrearRedZeroTierImg.src}
+  alt="Creación de nueva red en ZeroTier"
+  width="100%"
+  style="border-radius: 16px"
+/>
+Sin pedirnos ninguna información, inmediatamente después de pulsar, nos aparecerá
+una nueva red en la tabla de redes.
+<img
+  src={TablaRedesZeroTierImg.src}
+  alt="Tabla de redes en ZeroTier"
+  width="100%"
+  style="border-radius: 16px"
+/>
+Accederemos a ella haciendo clic sobre la fila de la tabla y nos redireccionará a
+la página de configuración. En el apartado “Settings” podemos cambiar el nombre a
+uno de nuestro gusto y para mayor seguridad, comprobaremos que la opción de “Access
+control” está a “Private”. Esto quiere decir que cuando los equipos soliciten acceder
+a la red, deberán ser autorizados desde el panel de configuración. Es importante
+que guardemos el código de ”network ID” ya que lo utilizaremos para añadir los equipos
+a la red.
+<img
+  src={AjustesRedZeroTierImg.src}
+  alt="Ajustes de red en ZeroTier"
+  width="100%"
+  style="border-radius: 16px"
+/>
+En la sección “Advanced” podemos configurar el rango de IPs privadas de nuestra red.
+Los nuevos equipos, o como lo llama ZeroTier “nodes”, tendrán una IP de ese rango
+asignada. En nuestro caso no lo modificaremos.
+<img
+  src={AjustesAvanzadosRedZeroTierImg.src}
+  alt="Ajustes avanzados de red en ZeroTier"
+  width="100%"
+  style="border-radius: 16px"
+/>
+
+---
+
+### Paso 5. Configurar los equipos o “nodes”
+
+Una vez creada la red, podemos añadir los equipos. En nuestro caso añadiremos tanto el iPad como el PC.
+
+#### Añadir y configurar PC
+
+Para añadir nuestro PC, deberemos descargarnos el cliente de ZeroTier para PC Windows.
+[ZeroTier para Windows](https://www.zerotier.com/download/#entry-3)
+
+<img
+  src={DescargarZeroTierWindowsImg.src}
+  alt="Descarga de ZeroTier para Windows"
+  width="100%"
+  style="border-radius: 16px"
+/>
+Una vez descargado el instalador, lo ejecutamos e instalamos el programa.
+<img
+  src={AbrirInstaladorZeroTierImg.src}
+  alt="Abrir instalador de ZeroTier en Windows"
+  width="100%"
+  style="border-radius: 16px"
+/>
+<img
+  src={InstalarZeroTierWindowsImg.src}
+  alt="Instalación de ZeroTier en Windows"
+  width="100%"
+  style="border-radius: 16px"
+/>
+Cuando lo tengamos completamente instalado, ejecutaremos el programa. Podemos
+encontrarlo buscándolo desde el menú de inicio de Windows.
+<img
+  src={BuscarZeroTierImg.src}
+  alt="Buscar ZeroTier en el menú de inicio de Windows"
+  width="100%"
+  style="border-radius: 16px"
+/>
+Al abrirlo, aparecerá un icono en la zona de iconos ocultos de nuestra barra de
+tareas. Deberemos hacer clic en la flecha para poder verlo y hacemos clic en el
+icono de ZeroTier. Una vez que se nos abra el menú, iremos a la opción "Join New
+Network".
+<img
+  src={UnirseNuevaRedZeroTierWindowsImg.src}
+  alt="Unirse a nueva red en ZeroTier desde Windows"
+  width="70%"
+  style="margin:auto; border-radius: 16px"
+/>
+Nos aparecerá una nueva ventana donde introduciremos el id de la red que
+guardamos en el apartado anterior y haremos clic en "Join".
+<img
+  src={IdRedZeroTierWindowsImg.src}
+  alt="Introducir ID de red en ZeroTier desde Windows"
+  width="100%"
+  style="border-radius: 16px"
+/>
+Tras acceder a la red si volvemos a repetir el proceso anterior veremos que nos
+aparecerá una nueva red. Si accedemos desplegando la información nos aparecerá
+"ACCESS DENIED".
+<img
+  src={VerRedesZeroTierWindowsImg.src}
+  alt="Redes en ZeroTier desde Windows con acceso denegado"
+  width="100%"
+  style="border-radius: 16px"
+/>
+Esto se debe a que tenemos que ir de nuevo a la web de ZeroTier y en la
+configuración de la red en el apartado "Members" aceptar a nuestro PC como nuevo
+nodo de la red.
+<img
+  src={PcNoAutorizadoZeroTierImg.src}
+  alt="PC no autorizado en la red ZeroTier"
+  width="100%"
+  style="border-radius: 16px"
+/>
+Para aceptar marcaremos el dispositivo y haremos clic en "Authorize".
+<img
+  src={PcAutorizadoZeroTierImg.src}
+  alt="PC autorizado en la red ZeroTier"
+  width="100%"
+  style="border-radius: 16px"
+/>
+Ya el PC está configurado, repetiremos el proceso en el iPad.
+
+#### Añadir y configurar iPad
+
+Para añadir el iPad, en primer lugar, nos descargaremos la app de ZeroTier para iPad.
+[ZeroTier para iPadOS](https://apps.apple.com/es/app/zerotier-one/id1084101492)
+Una vez instalada, abriremos la app y haremos clic en el “+” situado en la esquina superior derecha.
+
+<img
+  src={UnirseNuevaRedZeroTierIpadImg.src}
+  alt="Unirse a nueva red en ZeroTier desde iPad"
+  width="100%"
+  style="border-radius: 16px"
+/>
+Nos aparecerá una pantalla donde introduciremos el id de la red, este id de la red,
+que guardamos en el apartado anterior. Seguidamente le daremos a “Add Network”.
+<img
+  src={IdRedZeroTierIpadImg.src}
+  alt="Introducir ID de red en ZeroTier desde iPad"
+  width="100%"
+  style="border-radius: 16px"
+/>
+En ese momento nos aparecerá la red en la pantalla principal de la app y podremos
+encender la conexión.
+<img
+  src={VerRedesZeroTierIpadImg.src}
+  alt="Ver redes en ZeroTier desde iPad"
+  width="100%"
+  style="border-radius: 16px"
+/>
+En ese instante, en la página de configuración de la red en el apartado “Members”
+nos aparecerá el nuevo equipo y nos indicará que no está autorizado. Marcaremos el
+dispositivo y haremos clic en “Authorize”.
+<img
+  src={IpadNoAutorizadoZeroTierImg.src}
+  alt="iPad no autorizado en la red ZeroTier"
+  width="100%"
+  style="border-radius: 16px"
+/>
+Deberá verse como en la imagen a continuación.
+<img
+  src={IpadAutorizadoZeroTierImg.src}
+  alt="iPad autorizado en la red ZeroTier"
+  width="100%"
+  style="border-radius: 16px"
+/>
+
+### Probar la conexión
+
+Ya lo único que nos quedaría sería ir a la aplicación de RDP y entrar en la conexión que configuramos previamente.
+Puede ser que si nuestro equipo tiene contraseña, nos pida el nombre de usuario y contraseña para continuar.
+
+Recuerda que cada vez que quieras conectarte tienes que tener la conexión de ZeroTier dentro de la app encendida.
+
+---
+
+## Conclusiones
+
+Tras seguir esta guía podrás tener todas las ventajas de tener un equipo portátil como es el iPad y acceder a todos los programas y capacidades que te brinda tu PC.
+
+Como propuesta y si eres habilidoso con los atajos de Siri, puedes crear un atajo para encender y apagar la conexión y no necesitarás entrar en la app de ZeroTier nunca más.
+Recuerda que si tienes alguna duda o error durante el proceso siempre puedes ponerte en [contacto conmigo](https://www.rafandco.es/#contact).
+
+---

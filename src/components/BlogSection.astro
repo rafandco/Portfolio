@@ -1,0 +1,37 @@
+---
+import BlogPostCard from "./molecules/BlogPostCard.astro"
+import Section from "./organisms/Section.astro"
+
+interface Frontmatter {
+  title: string
+  imgSrc: string
+  description: string
+  href: string
+  medium?: string
+}
+
+const blog = await Astro.glob<Frontmatter>("../pages/blog/*.mdx")
+---
+
+<Section title="Blog" id="blog">
+  <div>
+    {
+      blog.map((blog) => (
+        <BlogPostCard
+          title={blog.frontmatter.title}
+          imgSrc={blog.frontmatter.imgSrc}
+          href={"/blog" + blog.frontmatter.href}
+        >
+          {blog.frontmatter.description}
+        </BlogPostCard>
+      ))
+    }
+  </div>
+</Section>
+<style>
+  div {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+</style>

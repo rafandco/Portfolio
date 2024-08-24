@@ -13,7 +13,8 @@ const theme = {
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [mdx()],  
+  integrations: [mdx()],
+  base:"./",
   // Change background color for the code Mdx theme
   markdown: {
     shikiConfig: {

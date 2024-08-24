@@ -2,7 +2,7 @@
 import BlogPostCard from "./molecules/BlogPostCard.astro"
 import Section from "./organisms/Section.astro"
 
-interface Frontmatter {
+interface Blog {
   title: string
   imgSrc: string
   description: string
@@ -10,7 +10,7 @@ interface Frontmatter {
   medium?: string
 }
 
-const blog = await Astro.glob<Frontmatter>("../pages/blog/*.mdx")
+const blog = await Astro.glob<Blog>("../pages/blog/*.mdx")
 ---
 
 <Section title="Blog" id="blog">

@@ -2,7 +2,7 @@
 import ProjectCard from "../components/molecules/ProjectCard.astro"
 import Section from "../components/organisms/Section.astro"
 
-interface Frontmatter {
+interface Project {
   title: string
   imgSrc: string
   type: string
@@ -13,8 +13,7 @@ interface Frontmatter {
   pdf?: string
 }
 
-const projects = await Astro.glob<Frontmatter>("../pages/projects/*.mdx")
-console.log(projects)
+const projects = await Astro.glob<Project>("../pages/projects/*.mdx")
 ---
 
 <Section title="Proyectos" id="proyectos">

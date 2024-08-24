@@ -93,11 +93,9 @@ const { frontmatter } = Astro.props
   header {
     width: 960px;
     grid-area: header;
-    position: fixed;
-    left: 50%;
+    position: sticky;
     top: 0px;
     bottom: auto;
-    transform: translateX(-50%);
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -116,7 +114,7 @@ const { frontmatter } = Astro.props
     display: flex;
     gap: 32px;
     align-items: stretch;
-    padding: 84px var(--card-padding) 0px var(--card-padding);
+    padding: 0px var(--card-padding) 0px var(--card-padding);
     margin: 32px auto;
   }
 
@@ -147,10 +145,6 @@ const { frontmatter } = Astro.props
     main {
       width: 768px;
     }
-
-    main {
-      padding: 74px var(--card-padding) 0px var(--card-padding);
-    }
   }
 
   /* Media query para dispositivos móviles */
@@ -161,7 +155,6 @@ const { frontmatter } = Astro.props
     }
 
     main {
-      padding: 74px var(--card-padding) 0px var(--card-padding);
       margin: 16px auto 32px auto;
     }
 
@@ -169,6 +162,14 @@ const { frontmatter } = Astro.props
       display: flex;
       flex-direction: column;
       grid-gap: 16px;
+    }
+
+    h1 {
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 1.25em;
+      letter-spacing: 0.05em;
+      margin: 0px;
     }
   }
 </style>

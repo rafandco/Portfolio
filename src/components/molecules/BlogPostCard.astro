@@ -2,7 +2,6 @@
 interface Props {
   title: string
   imgSrc: string
-  description?: string
   href: string
 }
 const { title, imgSrc, href } = Astro.props
@@ -10,7 +9,7 @@ const { title, imgSrc, href } = Astro.props
 
 <article>
   <a href={href}>
-    {imgSrc != "" && <img src={imgSrc} alt={"Captura de la web" + title} />}
+    {imgSrc != "" && <img src={imgSrc} alt={"Portada de" + title} />}
     <div>
       <h3>{title}</h3>
       <p class="text-opacity-80">
@@ -22,14 +21,19 @@ const { title, imgSrc, href } = Astro.props
 
 <style>
   article {
+    width: auto;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     gap: 16px;
     padding: var(--card-padding);
     background-color: var(--gray-medium);
     border-radius: 32px;
     border: var(--card-border);
     box-shadow: var(--box-shadow);
+  }
+
+  article:hover {
+    background-color: var(--gray-light);
   }
 
   a {
@@ -40,15 +44,19 @@ const { title, imgSrc, href } = Astro.props
     color: white;
   }
 
-  article:hover {
-    background-color: var(--gray-light);
-  }
-
   img {
     aspect-ratio: auto 3/2;
     width: 30%;
     border-radius: 16px;
     box-shadow: var(--box-shadow);
+  }
+
+  footer {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    gap: 8px;
   }
 
   div {

@@ -23,7 +23,7 @@ const { frontmatter } = Astro.props
       <h1>{frontmatter.title}</h1>
     </header>
     <main>
-      <img class="mockups" src={frontmatter.imgSrc} alt="Portada" />
+      <img class="cover" src={frontmatter.imgSrc} alt="Portada" />
       {
         frontmatter.medium && (
           <div class="button-wrapper">
@@ -73,16 +73,7 @@ const { frontmatter } = Astro.props
     margin: 32px auto;
   }
 
-  .img-wrapper-bento {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, auto);
-    justify-items: stretch;
-    align-items: stretch;
-    grid-gap: 16px;
-  }
-
-  .mockups {
+  .cover {
     aspect-ratio: auto 3/2;
     width: 100%;
     border-radius: 16px;
@@ -116,12 +107,6 @@ const { frontmatter } = Astro.props
     main {
       padding: 74px var(--card-padding) 0px var(--card-padding);
       margin: 16px auto 32px auto;
-    }
-
-    .img-wrapper-bento {
-      display: flex;
-      flex-direction: column;
-      grid-gap: 16px;
     }
   }
 </style>

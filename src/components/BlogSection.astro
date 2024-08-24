@@ -7,7 +7,6 @@ interface Blog {
   imgSrc: string
   description: string
   href: string
-  medium?: string
 }
 
 const blog = await Astro.glob<Blog>("../pages/blog/*.mdx")

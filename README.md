@@ -1,6 +1,6 @@
 # Rafandco Portfolio
 
-Portfolio personal, desarrollado con astro.
+Portfolio y blog personal, desarrollado con astro.
 
 - Inicio
 - Proyectos
